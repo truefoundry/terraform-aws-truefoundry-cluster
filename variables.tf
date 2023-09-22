@@ -160,18 +160,3 @@ variable "tags" {
   type        = map(string)
   default     = {}
 }
-
-variable "aws_region" {
-  description = "AWS region"
-  type        = string
-}
-
-variable "aws_account_id" {
-  description = "AWS account id"
-  type        = string
-}
-
-variable "account_name" {
-  description = "AWS account name"
-  type        = string
-}
