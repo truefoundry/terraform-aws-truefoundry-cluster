@@ -4,9 +4,9 @@
 
 module "aws-eks-kubernetes-cluster" {
   source                                = "terraform-aws-modules/eks/aws"
-  version                               = "v19.15.3"
+  version                               = "v19.17.2"
   cluster_name                          = var.cluster_name
-  cluster_version                       = "1.26"
+  cluster_version                       = "1.27"
   cluster_enabled_log_types             = var.cluster_enabled_log_types
   cluster_additional_security_group_ids = var.cluster_additional_security_group_ids
   subnet_ids                            = var.subnet_ids
