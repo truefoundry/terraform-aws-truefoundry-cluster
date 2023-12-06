@@ -45,6 +45,12 @@ variable "cluster_endpoint_public_access_cidrs" {
   default     = ["0.0.0.0/0"]
 }
 
+variable "cluster_version" {
+  description = "EKS cluster version"
+  type        = string
+  default     = "1.28"
+}
+
 ################################################################################
 # CloudWatch Log Group
 ################################################################################
