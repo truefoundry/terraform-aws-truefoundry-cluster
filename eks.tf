@@ -43,7 +43,7 @@ module "aws-eks-kubernetes-cluster" {
       create_iam_role            = var.karpenter_fargate_profile_create_iam_role
       iam_role_use_name_prefix   = true
       iam_role_name              = var.cluster_name
-      iam_role_description       = "TrueFoundry IAM role for Karpenter Fargate Profile for cluster ${var.cluster_name}"
+      iam_role_description       = "TrueFoundry IAM role of Karpenter Fargate Profile for cluster ${var.cluster_name}"
       iam_role_attach_cni_policy = var.karpenter_fargate_profile_attach_cni_policy
       iam_role_tags              = local.tags
       tags = merge(
