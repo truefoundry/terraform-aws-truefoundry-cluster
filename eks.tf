@@ -28,6 +28,31 @@ module "aws-eks-kubernetes-cluster" {
   cluster_security_group_additional_rules = merge(local.cluster_security_group_additional_rules, var.cluster_security_group_additional_rules)
   node_security_group_additional_rules    = merge(local.node_security_group_additional_rules, var.node_security_group_additional_rules)
   node_security_group_tags                = var.node_security_group_tags
+  fargate_profiles = var.karpenter_fargate_profile_enabled ? {
+    karpenter = {
+      create       = true
+      cluster_name = var.cluster_name
+      name         = local.karpenter_profile_name
 
+      subnet_ids = var.subnet_ids
+      selectors = [
+        {
+          namespace = var.karpenter_fargate_profile_namespace
+        }
+      ]
+      create_iam_role            = var.karpenter_fargate_profile_create_iam_role
+      iam_role_use_name_prefix   = true
+      iam_role_name              = var.cluster_name
+      iam_role_description       = "TrueFoundry IAM role of Karpenter Fargate Profile for cluster ${var.cluster_name}"
+      iam_role_attach_cni_policy = var.karpenter_fargate_profile_attach_cni_policy
+      iam_role_tags              = local.tags
+      tags = merge(
+        {
+          "faragate-profile" = "karpenter"
+        }, local.tags
+      )
+    }
+
+  } : {}
   tags = local.tags
 }

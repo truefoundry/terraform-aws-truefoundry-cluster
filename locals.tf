@@ -57,4 +57,6 @@ locals {
       self        = true # Does not work for fargate
     }
   }
+
+  karpenter_profile_name = "${var.cluster_name}-karpenter"
 }

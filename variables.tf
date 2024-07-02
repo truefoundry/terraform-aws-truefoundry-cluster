@@ -160,9 +160,35 @@ variable "eks_managed_node_groups" {
 ##################################################################################
 ## Other variables
 ##################################################################################
-
 variable "tags" {
   description = "A map of tags to add to all resources"
   type        = map(string)
   default     = {}
+}
+
+##################################################################################
+## Karpenter Fargate profile
+##################################################################################
+variable "karpenter_fargate_profile_enabled" {
+  description = "Enable Karpenter Fargate profile"
+  type        = bool
+  default     = false
+}
+
+variable "karpenter_fargate_profile_namespace" {
+  description = "value of the namespace where Karpenter is installed"
+  type        = string
+  default     = "karpenter"
+}
+
+variable "karpenter_fargate_profile_create_iam_role" {
+  description = "Create IAM role for Karpenter Fargate profile"
+  type        = bool
+  default     = true
+}
+
+variable "karpenter_fargate_profile_attach_cni_policy" {
+  description = "Attach CNI policy to IAM role for Karpenter Fargate profile"
+  type        = bool
+  default     = true
 }
