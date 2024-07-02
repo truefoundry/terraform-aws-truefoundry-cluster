@@ -169,7 +169,7 @@ output "self_managed_node_groups" {
 # Additional
 ################################################################################
 
-output "aws_auth_configmap_yaml" {
-  description = "Formatted yaml output for base aws-auth configmap containing roles used in cluster node groups/fargate profiles"
-  value       = module.aws-eks-kubernetes-cluster.aws_auth_configmap_yaml
+output "aws_access_entries" {
+  description = "Access entries for the EKS cluster security group"
+  value       = module.aws-eks-kubernetes-cluster.access_entries
 }

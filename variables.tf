@@ -51,6 +51,17 @@ variable "cluster_version" {
   default     = "1.30"
 }
 
+variable "cluster_authentication_mode" {
+  description = "value of the authentication mode for the EKS cluster"
+  type        = string
+  default     = "API_AND_CONFIG_MAP"
+}
+
+variable "cluster_access_entries" {
+  description = "value of the access entries for the EKS cluster"
+  type        = any
+  default     = {}
+}
 ################################################################################
 # CloudWatch Log Group
 ################################################################################
