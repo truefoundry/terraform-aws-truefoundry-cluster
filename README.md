@@ -7,7 +7,7 @@ Truefoundry EKS Module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.56.1 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | 5.57.0 |
 
 ## Providers
 
@@ -18,6 +18,7 @@ No providers.
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v20.15.0 |
+| <a name="module_eks_blueprints_addons"></a> [eks\_blueprints\_addons](#module\_eks\_blueprints\_addons) | aws-ia/eks-blueprints-addons/aws | 1.16.3 |
 
 ## Resources
 
@@ -30,6 +31,10 @@ No resources.
 | <a name="input_cloudwatch_log_group_retention_in_days"></a> [cloudwatch\_log\_group\_retention\_in\_days](#input\_cloudwatch\_log\_group\_retention\_in\_days) | Number of days to retain log events. Default retention - 90 days | `number` | `90` | no |
 | <a name="input_cluster_access_entries"></a> [cluster\_access\_entries](#input\_cluster\_access\_entries) | value of the access entries for the EKS cluster | `any` | `{}` | no |
 | <a name="input_cluster_additional_security_group_ids"></a> [cluster\_additional\_security\_group\_ids](#input\_cluster\_additional\_security\_group\_ids) | List of additional, externally created security group IDs to attach to the cluster control plane | `list(string)` | `[]` | no |
+| <a name="input_cluster_addons_coredns_version"></a> [cluster\_addons\_coredns\_version](#input\_cluster\_addons\_coredns\_version) | Version of the CoreDNS addon | `string` | `"v1.11.1-eksbuild.9"` | no |
+| <a name="input_cluster_addons_eks_pod_identity_agent_version"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_version](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_version) | Version of the EKS Pod Identity Agent addon | `string` | `"v1.3.0-eksbuild.1"` | no |
+| <a name="input_cluster_addons_kube_proxy_version"></a> [cluster\_addons\_kube\_proxy\_version](#input\_cluster\_addons\_kube\_proxy\_version) | Version of the kube-proxy addon | `string` | `"v1.30.0-eksbuild.3"` | no |
+| <a name="input_cluster_addons_vpc_cni_version"></a> [cluster\_addons\_vpc\_cni\_version](#input\_cluster\_addons\_vpc\_cni\_version) | Version of the VPC CNI addon | `string` | `"v1.18.2-eksbuild.1"` | no |
 | <a name="input_cluster_authentication_mode"></a> [cluster\_authentication\_mode](#input\_cluster\_authentication\_mode) | value of the authentication mode for the EKS cluster | `string` | `"API_AND_CONFIG_MAP"` | no |
 | <a name="input_cluster_enabled_log_types"></a> [cluster\_enabled\_log\_types](#input\_cluster\_enabled\_log\_types) | A list of the desired control plane logs to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) | `list(string)` | <pre>[<br>  "audit",<br>  "api",<br>  "authenticator"<br>]</pre> | no |
 | <a name="input_cluster_endpoint_private_access"></a> [cluster\_endpoint\_private\_access](#input\_cluster\_endpoint\_private\_access) | Indicates whether or not the Amazon EKS private API server endpoint is enabled | `bool` | `true` | no |
