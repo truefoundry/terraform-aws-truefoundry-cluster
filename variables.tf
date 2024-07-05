@@ -203,3 +203,54 @@ variable "karpenter_fargate_profile_attach_cni_policy" {
   type        = bool
   default     = true
 }
+
+##################################################################################
+## EKS addons
+##################################################################################
+# variable "cluster_addons_coredns_enable" {
+#   description = "Enable the CoreDNS addon"
+#   type        = bool
+#   default     = true
+# }
+
+variable "cluster_addons_coredns_version" {
+  description = "Version of the CoreDNS addon"
+  type        = string
+  default     = "v1.11.1-eksbuild.9"
+}
+
+# variable "cluster_addons_vpc_cni_enable" {
+#   description = "Enable the VPC CNI addon"
+#   type        = bool
+#   default     = true
+# }
+
+variable "cluster_addons_vpc_cni_version" {
+  description = "Version of the VPC CNI addon"
+  type        = string
+  default     = "v1.18.2-eksbuild.1"
+}
+
+# variable "cluster_addons_kube_proxy_enable" {
+#   description = "Enable the kube-proxy addon"
+#   type        = bool
+#   default     = true
+# }
+
+variable "cluster_addons_kube_proxy_version" {
+  description = "Version of the kube-proxy addon"
+  type        = string
+  default     = "v1.30.0-eksbuild.3"
+}
+
+# variable "cluster_addons_eks_pod_identity_agent_enable" {
+#   description = "Enable the EKS Pod Identity Agent addon"
+#   type        = bool
+#   default     = false
+# }
+
+variable "cluster_addons_eks_pod_identity_agent_version" {
+  description = "Version of the EKS Pod Identity Agent addon"
+  type        = string
+  default     = "v1.3.0-eksbuild.1"
+}
