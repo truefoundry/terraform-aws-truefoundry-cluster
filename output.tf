@@ -111,7 +111,7 @@ output "cluster_iam_role_unique_id" {
 
 output "cluster_addons" {
   description = "Map of attribute maps for all EKS cluster addons enabled"
-  value       = module.aws-eks-kubernetes-cluster.cluster_addons
+  value       = module.eks_blueprints_addons.eks_addons
 }
 
 ################################################################################
