@@ -162,12 +162,127 @@ variable "eks_managed_node_group_defaults" {
   default     = {}
 }
 
+variable "additional_eks_managed_node_groups" {
+  description = "Map of additional EKS managed node group definitions to create"
+  type        = any
+  default     = {}
+}
+
 variable "eks_managed_node_groups" {
   description = "Map of EKS managed node group definitions to create"
   type        = any
   default     = {}
 }
 
+################################################################################
+# EKS Managed Initial Node Group
+################################################################################
+variable "initial_node_pool_enabled" {
+  description = "Create al2023 initial node pool for EKS managed node group"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_ami_type" {
+  description = "AMI type for the initial node pool"
+  type        = string
+  default     = "AL2023_x86_64_STANDARD"
+}
+
+variable "inital_node_pool_capacity_type" {
+  description = "capacity type for the initial node pool"
+  type        = string
+  default     = "SPOT"
+}
+
+variable "initial_node_pool_create_iam_role" {
+  description = "Create IAM role for the initial node pool"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_create_iam_role_policy" {
+  description = "Create IAM role policy for the initial node pool"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_create_node_template" {
+  description = "Create node template for the initial node pool"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_min_size" {
+  description = "Minimum size for the initial node pool"
+  type        = number
+  default     = 2
+}
+
+variable "initial_node_pool_max_size" {
+  description = "Maximum size for the initial node pool"
+  type        = number
+  default     = 2
+}
+
+variable "initial_node_pool_desired_size" {
+  description = "Desired size for the initial node pool"
+  type        = number
+  default     = 2
+}
+
+variable "initial_node_pool_iam_role_attach_cni_policy" {
+  description = "Attach CNI policy to IAM role for the initial node pool"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_iam_role_tags" {
+  description = "IAM role tags for the initial node pool"
+  type        = map(string)
+  default     = {}
+}
+
+variable "initial_node_pool_iam_role_additional_policies" {
+  description = "Additional policies to be added to the IAM role for the initial node pool"
+  type        = map(string)
+  default = {
+    # Required by Karpenter
+    karpenter = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  }
+}
+
+variable "initial_node_pool_iam_role_use_name_prefix" {
+  description = "Use name prefix for IAM role for the initial node pool"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_instance_types" {
+  description = "Instance types for the initial node pool"
+  type        = list(string)
+  default     = ["c7i.large", "c7a.large", "m7i.large", "m7a.large", "r7i.large", "r7a.large", "r6i.large", "r6a.large", "c6i.large", "c6a.large", "m6a.large"]
+}
+
+variable "initial_node_pool_launch_template_use_name_prefix" {
+  description = "Use name prefix for launch template for the initial node pool"
+  type        = bool
+  default     = true
+}
+
+variable "initial_node_pool_metadata_options" {
+  description = "Metadata options for the initial node pool"
+  type        = map(string)
+  default     = {}
+}
+
+variable "initial_node_pool_labels" {
+  description = "Labels for the initial node pool"
+  type        = map(string)
+  default = {
+    "truefoundry.cloud" = "initial"
+  }
+}
 ##################################################################################
 ## Other variables
 ##################################################################################

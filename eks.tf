@@ -4,7 +4,7 @@
 
 module "aws-eks-kubernetes-cluster" {
   source                                = "terraform-aws-modules/eks/aws"
-  version                               = "v20.15.0"
+  version                               = "v20.17.2"
   cluster_name                          = var.cluster_name
   cluster_version                       = var.cluster_version
   cluster_enabled_log_types             = var.cluster_enabled_log_types
@@ -23,7 +23,7 @@ module "aws-eks-kubernetes-cluster" {
   self_managed_node_group_defaults       = var.self_managed_node_group_defaults
   self_managed_node_groups               = var.self_managed_node_groups
   eks_managed_node_group_defaults        = var.eks_managed_node_group_defaults
-  eks_managed_node_groups                = var.eks_managed_node_groups
+  eks_managed_node_groups                = local.node_groups
 
   cluster_security_group_additional_rules  = merge(local.cluster_security_group_additional_rules, var.cluster_security_group_additional_rules)
   node_security_group_additional_rules     = merge(local.node_security_group_additional_rules, var.node_security_group_additional_rules)
@@ -36,8 +36,7 @@ module "aws-eks-kubernetes-cluster" {
       create       = true
       cluster_name = var.cluster_name
       name         = local.karpenter_profile_name
-
-      subnet_ids = var.subnet_ids
+      subnet_ids   = var.subnet_ids
       selectors = [
         {
           namespace = var.karpenter_fargate_profile_namespace
