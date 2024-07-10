@@ -17,7 +17,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v20.15.0 |
+| <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v20.17.2 |
 | <a name="module_eks_blueprints_addons"></a> [eks\_blueprints\_addons](#module\_eks\_blueprints\_addons) | aws-ia/eks-blueprints-addons/aws | 1.16.3 |
 
 ## Resources
@@ -28,6 +28,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_additional_eks_managed_node_groups"></a> [additional\_eks\_managed\_node\_groups](#input\_additional\_eks\_managed\_node\_groups) | Map of additional EKS managed node group definitions to create | `any` | `{}` | no |
 | <a name="input_cloudwatch_log_group_retention_in_days"></a> [cloudwatch\_log\_group\_retention\_in\_days](#input\_cloudwatch\_log\_group\_retention\_in\_days) | Number of days to retain log events. Default retention - 90 days | `number` | `90` | no |
 | <a name="input_cluster_access_entries"></a> [cluster\_access\_entries](#input\_cluster\_access\_entries) | value of the access entries for the EKS cluster | `any` | `{}` | no |
 | <a name="input_cluster_additional_security_group_ids"></a> [cluster\_additional\_security\_group\_ids](#input\_cluster\_additional\_security\_group\_ids) | List of additional, externally created security group IDs to attach to the cluster control plane | `list(string)` | `[]` | no |
@@ -48,6 +49,23 @@ No resources.
 | <a name="input_eks_managed_node_groups"></a> [eks\_managed\_node\_groups](#input\_eks\_managed\_node\_groups) | Map of EKS managed node group definitions to create | `any` | `{}` | no |
 | <a name="input_enable_irsa"></a> [enable\_irsa](#input\_enable\_irsa) | Determines whether to create an OpenID Connect Provider for EKS to enable IRSA | `bool` | `true` | no |
 | <a name="input_iam_role_additional_policies"></a> [iam\_role\_additional\_policies](#input\_iam\_role\_additional\_policies) | Additional policies to be added to the IAM role | `map(string)` | `{}` | no |
+| <a name="input_inital_node_pool_capacity_type"></a> [inital\_node\_pool\_capacity\_type](#input\_inital\_node\_pool\_capacity\_type) | capacity type for the initial node pool | `string` | `"SPOT"` | no |
+| <a name="input_initial_node_pool_ami_type"></a> [initial\_node\_pool\_ami\_type](#input\_initial\_node\_pool\_ami\_type) | AMI type for the initial node pool | `string` | `"AL2023_x86_64_STANDARD"` | no |
+| <a name="input_initial_node_pool_create_iam_role"></a> [initial\_node\_pool\_create\_iam\_role](#input\_initial\_node\_pool\_create\_iam\_role) | Create IAM role for the initial node pool | `bool` | `true` | no |
+| <a name="input_initial_node_pool_create_iam_role_policy"></a> [initial\_node\_pool\_create\_iam\_role\_policy](#input\_initial\_node\_pool\_create\_iam\_role\_policy) | Create IAM role policy for the initial node pool | `bool` | `true` | no |
+| <a name="input_initial_node_pool_create_node_template"></a> [initial\_node\_pool\_create\_node\_template](#input\_initial\_node\_pool\_create\_node\_template) | Create node template for the initial node pool | `bool` | `true` | no |
+| <a name="input_initial_node_pool_desired_size"></a> [initial\_node\_pool\_desired\_size](#input\_initial\_node\_pool\_desired\_size) | Desired size for the initial node pool | `number` | `2` | no |
+| <a name="input_initial_node_pool_enabled"></a> [initial\_node\_pool\_enabled](#input\_initial\_node\_pool\_enabled) | Create al2023 initial node pool for EKS managed node group | `bool` | `true` | no |
+| <a name="input_initial_node_pool_iam_role_additional_policies"></a> [initial\_node\_pool\_iam\_role\_additional\_policies](#input\_initial\_node\_pool\_iam\_role\_additional\_policies) | Additional policies to be added to the IAM role for the initial node pool | `map(string)` | <pre>{<br>  "karpenter": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"<br>}</pre> | no |
+| <a name="input_initial_node_pool_iam_role_attach_cni_policy"></a> [initial\_node\_pool\_iam\_role\_attach\_cni\_policy](#input\_initial\_node\_pool\_iam\_role\_attach\_cni\_policy) | Attach CNI policy to IAM role for the initial node pool | `bool` | `true` | no |
+| <a name="input_initial_node_pool_iam_role_tags"></a> [initial\_node\_pool\_iam\_role\_tags](#input\_initial\_node\_pool\_iam\_role\_tags) | IAM role tags for the initial node pool | `map(string)` | `{}` | no |
+| <a name="input_initial_node_pool_iam_role_use_name_prefix"></a> [initial\_node\_pool\_iam\_role\_use\_name\_prefix](#input\_initial\_node\_pool\_iam\_role\_use\_name\_prefix) | Use name prefix for IAM role for the initial node pool | `bool` | `true` | no |
+| <a name="input_initial_node_pool_instance_types"></a> [initial\_node\_pool\_instance\_types](#input\_initial\_node\_pool\_instance\_types) | Instance types for the initial node pool | `list(string)` | <pre>[<br>  "c7i.large",<br>  "c7a.large",<br>  "m7i.large",<br>  "m7a.large",<br>  "r7i.large",<br>  "r7a.large",<br>  "r6i.large",<br>  "r6a.large",<br>  "c6i.large",<br>  "c6a.large",<br>  "m6a.large"<br>]</pre> | no |
+| <a name="input_initial_node_pool_labels"></a> [initial\_node\_pool\_labels](#input\_initial\_node\_pool\_labels) | Labels for the initial node pool | `map(string)` | <pre>{<br>  "truefoundry.cloud": "initial"<br>}</pre> | no |
+| <a name="input_initial_node_pool_launch_template_use_name_prefix"></a> [initial\_node\_pool\_launch\_template\_use\_name\_prefix](#input\_initial\_node\_pool\_launch\_template\_use\_name\_prefix) | Use name prefix for launch template for the initial node pool | `bool` | `true` | no |
+| <a name="input_initial_node_pool_max_size"></a> [initial\_node\_pool\_max\_size](#input\_initial\_node\_pool\_max\_size) | Maximum size for the initial node pool | `number` | `2` | no |
+| <a name="input_initial_node_pool_metadata_options"></a> [initial\_node\_pool\_metadata\_options](#input\_initial\_node\_pool\_metadata\_options) | Metadata options for the initial node pool | `map(string)` | `{}` | no |
+| <a name="input_initial_node_pool_min_size"></a> [initial\_node\_pool\_min\_size](#input\_initial\_node\_pool\_min\_size) | Minimum size for the initial node pool | `number` | `2` | no |
 | <a name="input_karpenter_fargate_profile_attach_cni_policy"></a> [karpenter\_fargate\_profile\_attach\_cni\_policy](#input\_karpenter\_fargate\_profile\_attach\_cni\_policy) | Attach CNI policy to IAM role for Karpenter Fargate profile | `bool` | `true` | no |
 | <a name="input_karpenter_fargate_profile_create_iam_role"></a> [karpenter\_fargate\_profile\_create\_iam\_role](#input\_karpenter\_fargate\_profile\_create\_iam\_role) | Create IAM role for Karpenter Fargate profile | `bool` | `true` | no |
 | <a name="input_karpenter_fargate_profile_enabled"></a> [karpenter\_fargate\_profile\_enabled](#input\_karpenter\_fargate\_profile\_enabled) | Enable Karpenter Fargate profile | `bool` | `true` | no |
