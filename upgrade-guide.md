@@ -5,7 +5,7 @@ This guide will help you to migrate your terraform code across versions. Keeping
 
 ### Pre-requisites
 1. Ensure you are running on the version [0.5.2](https://github.com/truefoundry/terraform-aws-truefoundry-cluster/releases/tag/v0.5.2)
-2. Ensure that you runnning on the EKS version `1.29` which is the default version in `0.5.2`
+2. Ensure that you runnning on the EKS version `1.30` which is the default version in `0.5.2`
 
 ## Upgrade changes (manual)
 1. Execute the terraform apply with version `0.6.0`. If it fails run the below command to import access entry for cluster creator
