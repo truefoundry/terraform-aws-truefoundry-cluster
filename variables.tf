@@ -298,7 +298,7 @@ variable "tags" {
 variable "karpenter_fargate_profile_enabled" {
   description = "Enable Karpenter Fargate profile"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "karpenter_fargate_profile_namespace" {
