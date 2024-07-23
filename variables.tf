@@ -261,7 +261,7 @@ variable "initial_node_pool_iam_role_use_name_prefix" {
 variable "initial_node_pool_instance_types" {
   description = "Instance types for the initial node pool"
   type        = list(string)
-  default     = ["c7i.large", "c7a.large", "m7i.large", "m7a.large", "r7i.large", "r7a.large", "r6i.large", "r6a.large", "c6i.large", "c6a.large", "m6a.large"]
+  default     = ["c7i.large", "m7i.large", "r7i.large", "r6i.large", "r6a.large", "c6i.large", "c6a.large", "m6a.large"]
 }
 
 variable "initial_node_pool_launch_template_use_name_prefix" {
