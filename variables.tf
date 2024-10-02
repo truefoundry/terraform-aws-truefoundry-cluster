@@ -12,7 +12,7 @@ variable "cluster_name" {
 variable "cluster_enabled_log_types" {
   description = "A list of the desired control plane logs to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)"
   type        = list(string)
-  default     = ["audit", "api", "authenticator"]
+  default     = []
 }
 
 variable "cluster_additional_security_group_ids" {
@@ -73,9 +73,9 @@ variable "create_cloudwatch_log_group" {
 }
 
 variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events. Default retention - 90 days"
+  description = "Number of days to retain log events. Default retention - 7 days"
   type        = number
-  default     = 90
+  default     = 7
 }
 
 ################################################################################
