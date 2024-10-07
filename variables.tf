@@ -15,6 +15,12 @@ variable "cluster_enabled_log_types" {
   default     = ["audit", "api", "authenticator"]
 }
 
+variable "enable_cluster_log" {
+  description = "Enable cluster control plane logs"
+  type        = bool
+  default     = true
+}
+
 variable "cluster_additional_security_group_ids" {
   description = "List of additional, externally created security group IDs to attach to the cluster control plane"
   type        = list(string)
@@ -73,9 +79,9 @@ variable "create_cloudwatch_log_group" {
 }
 
 variable "cloudwatch_log_group_retention_in_days" {
-  description = "Number of days to retain log events. Default retention - 90 days"
+  description = "Number of days to retain log events. Default retention - 7 days"
   type        = number
-  default     = 90
+  default     = 7
 }
 
 ################################################################################
