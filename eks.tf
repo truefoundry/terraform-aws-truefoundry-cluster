@@ -7,7 +7,7 @@ module "aws-eks-kubernetes-cluster" {
   version                               = "v20.17.2"
   cluster_name                          = var.cluster_name
   cluster_version                       = var.cluster_version
-  cluster_enabled_log_types             = var.cluster_enabled_log_types
+  cluster_enabled_log_types             = var.enable_cluster_log ? var.cluster_enabled_log_types : []
   cluster_additional_security_group_ids = var.cluster_additional_security_group_ids
   subnet_ids                            = var.subnet_ids
   cluster_endpoint_private_access       = var.cluster_endpoint_private_access
