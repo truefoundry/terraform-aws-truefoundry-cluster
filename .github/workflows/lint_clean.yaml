@@ -6,4 +6,4 @@ on:
 jobs:
   fmt_and_lint:
     name: Terraform fmt and tflint
-    uses: truefoundry/workflows/.github/workflows/terraform-lint-format.yml@iac-scanning
+    uses: truefoundry/workflows/.github/github-workflows-public/terraform-lint-format.yml@terraform-workflows
