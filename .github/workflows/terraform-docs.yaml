@@ -5,4 +5,4 @@ on:
 jobs:
   terraform-docs-generator:
     name: Generate terraform docs
-    uses: truefoundry/workflows/.github/github-workflows-public/terraform-doc-generator.yml@terraform-workflows
+    uses: truefoundry/github-workflows-public/.github/workflows/terraform-doc-generator.yml@main

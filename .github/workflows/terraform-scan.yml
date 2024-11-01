@@ -5,4 +5,4 @@ on:
 jobs:
   terraform-scan:
     name: Vulnerability scanning
-    uses: truefoundry/workflows/.github/workflows/terraform-scan.yml@terraform-workflows
+    uses: truefoundry/github-workflows-public/.github/workflows/terraform-scan.yml@main
