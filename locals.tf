@@ -67,7 +67,7 @@ locals {
   node_groups = merge(var.additional_eks_managed_node_groups,
     var.initial_node_pool_enabled ? {
       initial = {
-        ami_type = "AL2023_x86_64_STANDARD"
+        ami_type = var.initial_node_pool_ami_type
         block_device_mappings = {
           xvda = {
             device_name = "/dev/xvda"
