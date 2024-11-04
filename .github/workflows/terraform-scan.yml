@@ -6,3 +6,5 @@ jobs:
   terraform-scan:
     name: Vulnerability scanning
     uses: truefoundry/github-workflows-public/.github/workflows/terraform-scan.yml@main
+    secrets:
+      snyk_token: ${{ secrets.SNYK_TOKEN }}
