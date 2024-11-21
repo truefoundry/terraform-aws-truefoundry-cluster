@@ -4,7 +4,7 @@
 # Cluster
 ################################################################################
 output "use_existing_cluster" {
-  description = "Flag to check if you are using an alreday existing cluster"
+  description = "Flag to check if you are using an already existing cluster"
   value       = var.use_existing_cluster
 }
 
