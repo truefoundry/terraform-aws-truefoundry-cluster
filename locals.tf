@@ -109,18 +109,18 @@ locals {
   // tflint-ignore: terraform_map_duplicate_keys
   output_eks_managed_node_groups = tomap({
     "initial" = {
-      autoscaling_group_schedule_arns    = {}
-      iam_role_arn                       = var.existing_cluster_node_role_arn
-      iam_role_unique_id                 = {}
-      launch_template_arn                = ""
-      launch_template_id                 = ""
+      autoscaling_group_schedule_arns = {}
+      iam_role_arn                    = var.existing_cluster_node_role_arn
+      iam_role_unique_id              = {}
+      launch_template_arn             = ""
+      launch_template_id              = ""
       // tflint-ignore: terraform_map_duplicate_keys
-      autoscaling_group_schedule_arns    = {}
-      iam_role_name                      = ""
+      autoscaling_group_schedule_arns = {}
+      iam_role_name                   = ""
       // tflint-ignore: terraform_map_duplicate_keys
-      iam_role_unique_id                 = ""
+      iam_role_unique_id = ""
       // tflint-ignore: terraform_map_duplicate_keys
-      launch_template_arn                = ""
+      launch_template_arn = ""
       // tflint-ignore: terraform_map_duplicate_keys
       launch_template_id                 = ""
       launch_template_latest_version     = 0
