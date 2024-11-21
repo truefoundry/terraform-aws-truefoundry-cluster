@@ -3,13 +3,14 @@
 ###################################################################################
 
 module "eks_blueprints_addons" {
+  count   = var.use_existing_cluster ? 0 : 1
   source  = "aws-ia/eks-blueprints-addons/aws"
   version = "1.16.3"
 
-  cluster_name      = module.aws-eks-kubernetes-cluster.cluster_name
-  cluster_endpoint  = module.aws-eks-kubernetes-cluster.cluster_endpoint
-  cluster_version   = module.aws-eks-kubernetes-cluster.cluster_version
-  oidc_provider_arn = module.aws-eks-kubernetes-cluster.oidc_provider_arn
+  cluster_name      = module.aws-eks-kubernetes-cluster[0].cluster_name
+  cluster_endpoint  = module.aws-eks-kubernetes-cluster[0].cluster_endpoint
+  cluster_version   = module.aws-eks-kubernetes-cluster[0].cluster_version
+  oidc_provider_arn = module.aws-eks-kubernetes-cluster[0].oidc_provider_arn
 
   eks_addons = {
     coredns = {

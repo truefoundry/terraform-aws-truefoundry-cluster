@@ -104,4 +104,30 @@ locals {
   } : {})
 
   karpenter_profile_name = "${var.cluster_name}-karpenter"
+
+  // this is used when use_existing_cluster is set to true, so that we don't have to modify eks_managed_node_groups
+  output_eks_managed_node_groups = tomap({
+    "initial" = {
+      autoscaling_group_schedule_arns    = {}
+      iam_role_arn                       = var.existing_cluster_node_role_arn
+      iam_role_unique_id                 = {}
+      launch_template_arn                = ""
+      launch_template_id                 = ""
+      autoscaling_group_schedule_arns    = {}
+      iam_role_name                      = ""
+      iam_role_unique_id                 = ""
+      launch_template_arn                = ""
+      launch_template_id                 = ""
+      launch_template_latest_version     = 0
+      launch_template_name               = ""
+      node_group_arn                     = ""
+      node_group_autoscaling_group_names = []
+      node_group_id                      = ""
+      node_group_labels                  = {}
+      node_group_resources               = []
+      node_group_status                  = ""
+      node_group_taints                  = []
+      platform                           = ""
+    }
+  })
 }
