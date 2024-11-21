@@ -106,6 +106,7 @@ locals {
   karpenter_profile_name = "${var.cluster_name}-karpenter"
 
   // this is used when use_existing_cluster is set to true, so that we don't have to modify eks_managed_node_groups
+  // tflint-ignore: terraform_map_duplicate_keys
   output_eks_managed_node_groups = tomap({
     "initial" = {
       autoscaling_group_schedule_arns    = {}
@@ -113,10 +114,14 @@ locals {
       iam_role_unique_id                 = {}
       launch_template_arn                = ""
       launch_template_id                 = ""
+      // tflint-ignore: terraform_map_duplicate_keys
       autoscaling_group_schedule_arns    = {}
       iam_role_name                      = ""
+      // tflint-ignore: terraform_map_duplicate_keys
       iam_role_unique_id                 = ""
+      // tflint-ignore: terraform_map_duplicate_keys
       launch_template_arn                = ""
+      // tflint-ignore: terraform_map_duplicate_keys
       launch_template_id                 = ""
       launch_template_latest_version     = 0
       launch_template_name               = ""
