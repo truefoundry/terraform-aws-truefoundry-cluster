@@ -11,7 +11,9 @@ Truefoundry EKS Module
 
 ## Providers
 
-No providers.
+| Name | Version |
+|------|---------|
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 5.57 |
 
 ## Modules
 
@@ -22,7 +24,9 @@ No providers.
 
 ## Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [aws_eks_cluster.eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) | data source |
 
 ## Inputs
 
@@ -45,13 +49,17 @@ No resources.
 | <a name="input_cluster_endpoint_private_access"></a> [cluster\_endpoint\_private\_access](#input\_cluster\_endpoint\_private\_access) | Indicates whether or not the Amazon EKS private API server endpoint is enabled | `bool` | `true` | no |
 | <a name="input_cluster_endpoint_public_access"></a> [cluster\_endpoint\_public\_access](#input\_cluster\_endpoint\_public\_access) | Indicates whether or not the Amazon EKS public API server endpoint is enabled | `bool` | `true` | no |
 | <a name="input_cluster_endpoint_public_access_cidrs"></a> [cluster\_endpoint\_public\_access\_cidrs](#input\_cluster\_endpoint\_public\_access\_cidrs) | List of CIDR blocks which can access the Amazon EKS public API server endpoint | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
-| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the EKS cluster | `string` | n/a | yes |
+| <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the EKS cluster. If use\_existing\_cluster is set to true, cluster\_name will be used to fetch details only | `string` | n/a | yes |
 | <a name="input_cluster_security_group_additional_rules"></a> [cluster\_security\_group\_additional\_rules](#input\_cluster\_security\_group\_additional\_rules) | List of additional security group rules to add to the cluster security group created. Set `source_node_security_group = true` inside rules to set the `node_security_group` as source | `any` | `{}` | no |
 | <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | EKS cluster version | `string` | `"1.30"` | no |
 | <a name="input_create_cloudwatch_log_group"></a> [create\_cloudwatch\_log\_group](#input\_create\_cloudwatch\_log\_group) | Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled | `bool` | `true` | no |
 | <a name="input_eks_managed_node_group_defaults"></a> [eks\_managed\_node\_group\_defaults](#input\_eks\_managed\_node\_group\_defaults) | Managed node group defaults | `any` | `{}` | no |
 | <a name="input_enable_cluster_log"></a> [enable\_cluster\_log](#input\_enable\_cluster\_log) | Enable cluster control plane logs | `bool` | `true` | no |
 | <a name="input_enable_irsa"></a> [enable\_irsa](#input\_enable\_irsa) | Determines whether to create an OpenID Connect Provider for EKS to enable IRSA | `bool` | `true` | no |
+| <a name="input_existing_cluster_node_role_arn"></a> [existing\_cluster\_node\_role\_arn](#input\_existing\_cluster\_node\_role\_arn) | IAM node role ARN for an existing cluster. This will only be used when use\_existing\_cluster is true | `string` | `""` | no |
+| <a name="input_existing_cluster_node_security_group_id"></a> [existing\_cluster\_node\_security\_group\_id](#input\_existing\_cluster\_node\_security\_group\_id) | Node security group for an existing cluster. This will only be used when use\_existing\_cluster is true. | `string` | `""` | no |
+| <a name="input_existing_cluster_oidc_issuer_arn"></a> [existing\_cluster\_oidc\_issuer\_arn](#input\_existing\_cluster\_oidc\_issuer\_arn) | OIDC issuer ARN for an existing cluster. This will only be used when use\_existing\_cluster is true. | `string` | `""` | no |
+| <a name="input_existing_cluster_oidc_issuer_url"></a> [existing\_cluster\_oidc\_issuer\_url](#input\_existing\_cluster\_oidc\_issuer\_url) | OIDC issuer URL for an existing cluster. This will only be used when use\_existing\_cluster is true. | `string` | `""` | no |
 | <a name="input_iam_role_additional_policies"></a> [iam\_role\_additional\_policies](#input\_iam\_role\_additional\_policies) | Additional policies to be added to the IAM role | `map(string)` | `{}` | no |
 | <a name="input_inital_node_pool_capacity_type"></a> [inital\_node\_pool\_capacity\_type](#input\_inital\_node\_pool\_capacity\_type) | capacity type for the initial node pool | `string` | `"SPOT"` | no |
 | <a name="input_initial_node_pool_ami_type"></a> [initial\_node\_pool\_ami\_type](#input\_initial\_node\_pool\_ami\_type) | AMI type for the initial node pool | `string` | `"AL2023_x86_64_STANDARD"` | no |
@@ -81,6 +89,7 @@ No resources.
 | <a name="input_self_managed_node_groups"></a> [self\_managed\_node\_groups](#input\_self\_managed\_node\_groups) | Map of self-managed node group definitions to create | `any` | `{}` | no |
 | <a name="input_subnet_ids"></a> [subnet\_ids](#input\_subnet\_ids) | A list of subnet IDs where the EKS cluster (ENIs) will be provisioned along with the nodes/node groups. Node groups can be deployed within a different set of subnet IDs from within the node group configuration | `list(string)` | `[]` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A map of tags to add to all resources | `map(string)` | `{}` | no |
+| <a name="input_use_existing_cluster"></a> [use\_existing\_cluster](#input\_use\_existing\_cluster) | Flag to use an existing cluster. If this is true, a new EKS cluster will not be created | `bool` | `false` | no |
 | <a name="input_vpc_id"></a> [vpc\_id](#input\_vpc\_id) | ID of the VPC where the cluster and its nodes will be provisioned | `string` | `null` | no |
 
 ## Outputs
@@ -110,6 +119,7 @@ No resources.
 | <a name="output_fargate_profiles"></a> [fargate\_profiles](#output\_fargate\_profiles) | Map of attribute maps for all EKS Fargate Profiles created |
 | <a name="output_node_security_group_arn"></a> [node\_security\_group\_arn](#output\_node\_security\_group\_arn) | Amazon Resource Name (ARN) of the node shared security group |
 | <a name="output_node_security_group_id"></a> [node\_security\_group\_id](#output\_node\_security\_group\_id) | ID of the node shared security group |
-| <a name="output_oidc_provider_arn"></a> [oidc\_provider\_arn](#output\_oidc\_provider\_arn) | The ARN of the OIDC Provider if `enable_irsa = true` |
+| <a name="output_oidc_provider_arn"></a> [oidc\_provider\_arn](#output\_oidc\_provider\_arn) | The ARN of the OIDC Provider |
 | <a name="output_self_managed_node_groups"></a> [self\_managed\_node\_groups](#output\_self\_managed\_node\_groups) | Map of attribute maps for all self managed node groups created |
+| <a name="output_use_existing_cluster"></a> [use\_existing\_cluster](#output\_use\_existing\_cluster) | Flag to check if you are using an alreday existing cluster |
 <!-- END_TF_DOCS -->
