@@ -1,11 +1,64 @@
 # From https://github.com/terraform-aws-modules/terraform-aws-eks/blob/master/variables.tf
 
 ################################################################################
+# Existing cluster
+################################################################################
+variable "use_existing_cluster" {
+  description = "Flag to use an existing cluster. If this is true, a new EKS cluster will not be created"
+  default     = false
+  type        = bool
+}
+
+variable "existing_cluster_node_role_arn" {
+  description = "IAM node role ARN for an existing cluster. This will only be used when use_existing_cluster is true"
+  default     = ""
+  type        = string
+
+  validation {
+    condition     = var.use_existing_cluster == false || var.existing_cluster_node_role_arn != ""
+    error_message = "existing_cluster_node_role_arn must be non-empty if use_existing_cluster is true."
+  }
+}
+
+variable "existing_cluster_node_security_group_id" {
+  description = "Node security group for an existing cluster. This will only be used when use_existing_cluster is true."
+  default     = ""
+  type        = string
+
+  validation {
+    condition     = var.use_existing_cluster == false || var.existing_cluster_node_security_group_id != ""
+    error_message = "existing_cluster_node_security_group_id must be non-empty if use_existing_cluster is true."
+  }
+}
+
+variable "existing_cluster_oidc_issuer_arn" {
+  description = "OIDC issuer ARN for an existing cluster. This will only be used when use_existing_cluster is true."
+  default     = ""
+  type        = string
+
+  validation {
+    condition     = var.use_existing_cluster == false || var.existing_cluster_oidc_issuer_arn != ""
+    error_message = "existing_cluster_oidc_issuer_arn must be non-empty if use_existing_cluster is true."
+  }
+}
+
+variable "existing_cluster_oidc_issuer_url" {
+  description = "OIDC issuer URL for an existing cluster. This will only be used when use_existing_cluster is true."
+  default     = ""
+  type        = string
+
+  validation {
+    condition     = var.use_existing_cluster == false || var.existing_cluster_oidc_issuer_url != ""
+    error_message = "existing_cluster_oidc_issuer_url must be non-empty if use_existing_cluster is true."
+  }
+}
+
+################################################################################
 # Cluster
 ################################################################################
 
 variable "cluster_name" {
-  description = "Name of the EKS cluster"
+  description = "Name of the EKS cluster. If use_existing_cluster is set to true, cluster_name will be used to fetch details only"
   type        = string
 }
 
