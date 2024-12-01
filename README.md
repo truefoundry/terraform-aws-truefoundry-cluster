@@ -26,6 +26,7 @@ Truefoundry EKS Module
 
 | Name | Type |
 |------|------|
+| [aws_ec2_tag.node_security_group](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ec2_tag) | resource |
 | [aws_eks_cluster.eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) | data source |
 
 ## Inputs
