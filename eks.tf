@@ -59,3 +59,12 @@ module "aws-eks-kubernetes-cluster" {
   } : {}
   tags = local.tags
 }
+
+# Add tags to existing node security group if using existing cluster
+resource "aws_ec2_tag" "node_security_group" {
+  for_each = var.use_existing_cluster ? local.karpenter_tags : {}
+
+  resource_id = var.existing_cluster_node_security_group_id
+  key         = each.key
+  value       = each.value
+}
