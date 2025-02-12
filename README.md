@@ -19,7 +19,7 @@ Truefoundry EKS Module
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v20.17.2 |
+| <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v20.33.1 |
 | <a name="module_eks_blueprints_addons"></a> [eks\_blueprints\_addons](#module\_eks\_blueprints\_addons) | aws-ia/eks-blueprints-addons/aws | 1.16.3 |
 
 ## Resources
@@ -37,13 +37,13 @@ Truefoundry EKS Module
 | <a name="input_cluster_access_entries"></a> [cluster\_access\_entries](#input\_cluster\_access\_entries) | value of the access entries for the EKS cluster | `any` | `{}` | no |
 | <a name="input_cluster_additional_security_group_ids"></a> [cluster\_additional\_security\_group\_ids](#input\_cluster\_additional\_security\_group\_ids) | List of additional, externally created security group IDs to attach to the cluster control plane | `list(string)` | `[]` | no |
 | <a name="input_cluster_addons_coredns_additional_configurations"></a> [cluster\_addons\_coredns\_additional\_configurations](#input\_cluster\_addons\_coredns\_additional\_configurations) | Additional configurations for the coredns addon | `any` | `{}` | no |
-| <a name="input_cluster_addons_coredns_version"></a> [cluster\_addons\_coredns\_version](#input\_cluster\_addons\_coredns\_version) | Version of the CoreDNS addon | `string` | `"v1.11.1-eksbuild.9"` | no |
+| <a name="input_cluster_addons_coredns_version"></a> [cluster\_addons\_coredns\_version](#input\_cluster\_addons\_coredns\_version) | Version of the CoreDNS addon | `string` | `"v1.11.4-eksbuild.2"` | no |
 | <a name="input_cluster_addons_eks_pod_identity_agent_additional_configurations"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_additional\_configurations](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_additional\_configurations) | Additional configurations for the kube proxy addon | `any` | `{}` | no |
-| <a name="input_cluster_addons_eks_pod_identity_agent_version"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_version](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_version) | Version of the EKS Pod Identity Agent addon | `string` | `"v1.3.0-eksbuild.1"` | no |
+| <a name="input_cluster_addons_eks_pod_identity_agent_version"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_version](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_version) | Version of the EKS Pod Identity Agent addon | `string` | `"v1.3.4-eksbuild.1"` | no |
 | <a name="input_cluster_addons_kube_proxy_additional_configurations"></a> [cluster\_addons\_kube\_proxy\_additional\_configurations](#input\_cluster\_addons\_kube\_proxy\_additional\_configurations) | Additional configurations for the kube proxy addon | `any` | `{}` | no |
-| <a name="input_cluster_addons_kube_proxy_version"></a> [cluster\_addons\_kube\_proxy\_version](#input\_cluster\_addons\_kube\_proxy\_version) | Version of the kube-proxy addon | `string` | `"v1.30.0-eksbuild.3"` | no |
+| <a name="input_cluster_addons_kube_proxy_version"></a> [cluster\_addons\_kube\_proxy\_version](#input\_cluster\_addons\_kube\_proxy\_version) | Version of the kube-proxy addon | `string` | `"v1.31.3-eksbuild.2"` | no |
 | <a name="input_cluster_addons_vpc_cni_additional_configurations"></a> [cluster\_addons\_vpc\_cni\_additional\_configurations](#input\_cluster\_addons\_vpc\_cni\_additional\_configurations) | Additional configurations for the VPC CNI addon | `any` | `{}` | no |
-| <a name="input_cluster_addons_vpc_cni_version"></a> [cluster\_addons\_vpc\_cni\_version](#input\_cluster\_addons\_vpc\_cni\_version) | Version of the VPC CNI addon | `string` | `"v1.18.2-eksbuild.1"` | no |
+| <a name="input_cluster_addons_vpc_cni_version"></a> [cluster\_addons\_vpc\_cni\_version](#input\_cluster\_addons\_vpc\_cni\_version) | Version of the VPC CNI addon | `string` | `"v1.19.2-eksbuild.1"` | no |
 | <a name="input_cluster_authentication_mode"></a> [cluster\_authentication\_mode](#input\_cluster\_authentication\_mode) | value of the authentication mode for the EKS cluster | `string` | `"API_AND_CONFIG_MAP"` | no |
 | <a name="input_cluster_enabled_log_types"></a> [cluster\_enabled\_log\_types](#input\_cluster\_enabled\_log\_types) | A list of the desired control plane logs to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html) | `list(string)` | <pre>[<br/>  "audit",<br/>  "api",<br/>  "authenticator"<br/>]</pre> | no |
 | <a name="input_cluster_endpoint_private_access"></a> [cluster\_endpoint\_private\_access](#input\_cluster\_endpoint\_private\_access) | Indicates whether or not the Amazon EKS private API server endpoint is enabled | `bool` | `true` | no |
@@ -51,7 +51,7 @@ Truefoundry EKS Module
 | <a name="input_cluster_endpoint_public_access_cidrs"></a> [cluster\_endpoint\_public\_access\_cidrs](#input\_cluster\_endpoint\_public\_access\_cidrs) | List of CIDR blocks which can access the Amazon EKS public API server endpoint | `list(string)` | <pre>[<br/>  "0.0.0.0/0"<br/>]</pre> | no |
 | <a name="input_cluster_name"></a> [cluster\_name](#input\_cluster\_name) | Name of the EKS cluster. If use\_existing\_cluster is set to true, cluster\_name will be used to fetch details only | `string` | n/a | yes |
 | <a name="input_cluster_security_group_additional_rules"></a> [cluster\_security\_group\_additional\_rules](#input\_cluster\_security\_group\_additional\_rules) | List of additional security group rules to add to the cluster security group created. Set `source_node_security_group = true` inside rules to set the `node_security_group` as source | `any` | `{}` | no |
-| <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | EKS cluster version | `string` | `"1.30"` | no |
+| <a name="input_cluster_version"></a> [cluster\_version](#input\_cluster\_version) | EKS cluster version | `string` | `"1.31"` | no |
 | <a name="input_create_cloudwatch_log_group"></a> [create\_cloudwatch\_log\_group](#input\_create\_cloudwatch\_log\_group) | Determines whether a log group is created by this module for the cluster logs. If not, AWS will automatically create one if logging is enabled | `bool` | `true` | no |
 | <a name="input_eks_managed_node_group_defaults"></a> [eks\_managed\_node\_group\_defaults](#input\_eks\_managed\_node\_group\_defaults) | Managed node group defaults | `any` | `{}` | no |
 | <a name="input_enable_cluster_log"></a> [enable\_cluster\_log](#input\_enable\_cluster\_log) | Enable cluster control plane logs | `bool` | `true` | no |
