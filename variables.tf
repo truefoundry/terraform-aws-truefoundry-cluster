@@ -107,7 +107,7 @@ variable "cluster_endpoint_public_access_cidrs" {
 variable "cluster_version" {
   description = "EKS cluster version"
   type        = string
-  default     = "1.30"
+  default     = "1.31"
 }
 
 variable "cluster_authentication_mode" {
@@ -384,7 +384,7 @@ variable "karpenter_fargate_profile_attach_cni_policy" {
 variable "cluster_addons_coredns_version" {
   description = "Version of the CoreDNS addon"
   type        = string
-  default     = "v1.11.1-eksbuild.9"
+  default     = "v1.11.4-eksbuild.2"
 }
 
 variable "cluster_addons_coredns_additional_configurations" {
@@ -402,7 +402,7 @@ variable "cluster_addons_coredns_additional_configurations" {
 variable "cluster_addons_vpc_cni_version" {
   description = "Version of the VPC CNI addon"
   type        = string
-  default     = "v1.18.2-eksbuild.1"
+  default     = "v1.19.2-eksbuild.1"
 }
 
 variable "cluster_addons_vpc_cni_additional_configurations" {
@@ -420,7 +420,7 @@ variable "cluster_addons_vpc_cni_additional_configurations" {
 variable "cluster_addons_kube_proxy_version" {
   description = "Version of the kube-proxy addon"
   type        = string
-  default     = "v1.30.0-eksbuild.3"
+  default     = "v1.31.3-eksbuild.2"
 }
 
 variable "cluster_addons_kube_proxy_additional_configurations" {
@@ -438,7 +438,7 @@ variable "cluster_addons_kube_proxy_additional_configurations" {
 variable "cluster_addons_eks_pod_identity_agent_version" {
   description = "Version of the EKS Pod Identity Agent addon"
   type        = string
-  default     = "v1.3.0-eksbuild.1"
+  default     = "v1.3.4-eksbuild.1"
 }
 
 variable "cluster_addons_eks_pod_identity_agent_additional_configurations" {

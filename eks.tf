@@ -5,7 +5,7 @@
 module "aws-eks-kubernetes-cluster" {
   count                                 = var.use_existing_cluster ? 0 : 1
   source                                = "terraform-aws-modules/eks/aws"
-  version                               = "v20.17.2"
+  version                               = "v20.33.1"
   cluster_name                          = var.cluster_name
   cluster_version                       = var.cluster_version
   cluster_enabled_log_types             = var.enable_cluster_log ? var.cluster_enabled_log_types : []
