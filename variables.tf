@@ -402,7 +402,7 @@ variable "cluster_addons_coredns_additional_configurations" {
 variable "cluster_addons_vpc_cni_version" {
   description = "Version of the VPC CNI addon"
   type        = string
-  default     = "v1.19.2-eksbuild.1"
+  default     = "v1.19.2-eksbuild.5"
 }
 
 variable "cluster_addons_vpc_cni_additional_configurations" {
