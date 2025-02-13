@@ -420,7 +420,7 @@ variable "cluster_addons_vpc_cni_additional_configurations" {
 variable "cluster_addons_kube_proxy_version" {
   description = "Version of the kube-proxy addon"
   type        = string
-  default     = "v1.31.3-eksbuild.2"
+  default     = "v1.32.0-eksbuild.2"
 }
 
 variable "cluster_addons_kube_proxy_additional_configurations" {
