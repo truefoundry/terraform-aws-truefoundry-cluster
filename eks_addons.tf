@@ -5,7 +5,7 @@
 module "eks_blueprints_addons" {
   count   = var.use_existing_cluster ? 0 : 1
   source  = "aws-ia/eks-blueprints-addons/aws"
-  version = "1.16.3"
+  version = "1.19.0"
 
   cluster_name      = module.aws-eks-kubernetes-cluster[0].cluster_name
   cluster_endpoint  = module.aws-eks-kubernetes-cluster[0].cluster_endpoint
