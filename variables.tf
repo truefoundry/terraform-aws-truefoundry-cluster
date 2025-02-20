@@ -446,3 +446,9 @@ variable "cluster_addons_eks_pod_identity_agent_additional_configurations" {
   type        = any
   default     = {}
 }
+
+variable "cluster_addons_observability_tag" {
+  description = "Tag to identify EKS Blueprints usage within observability tools. Keep this value to null to disable telemetry"
+  type        = string
+  default     = "qs-1ubotj5kl"
+}
