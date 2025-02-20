@@ -11,6 +11,7 @@ module "eks_blueprints_addons" {
   cluster_endpoint  = module.aws-eks-kubernetes-cluster[0].cluster_endpoint
   cluster_version   = module.aws-eks-kubernetes-cluster[0].cluster_version
   oidc_provider_arn = module.aws-eks-kubernetes-cluster[0].oidc_provider_arn
+  observability_tag = var.cluster_addons_observability_tag
 
   eks_addons = {
     coredns = {
