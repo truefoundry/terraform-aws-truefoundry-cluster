@@ -236,6 +236,12 @@ variable "initial_node_pool_enabled" {
   default     = true
 }
 
+variable "initial_node_pool_ami_id" {
+  description = "AMI ID for the initial node pool. Keep it empty string for using the public AMI"
+  type        = string
+  default     = ""
+}
+
 variable "initial_node_pool_ami_type" {
   description = "AMI type for the initial node pool"
   type        = string
@@ -254,6 +260,12 @@ variable "initial_node_pool_create_iam_role" {
   default     = true
 }
 
+variable "initial_node_pool_iam_role_description" {
+  description = "Description for the IAM role of the initial node pool"
+  type        = string
+  default     = ""
+}
+
 variable "initial_node_pool_create_iam_role_policy" {
   description = "Create IAM role policy for the initial node pool"
   type        = bool
@@ -264,6 +276,12 @@ variable "initial_node_pool_create_node_template" {
   description = "Create node template for the initial node pool"
   type        = bool
   default     = true
+}
+
+variable "initial_node_pool_launch_template_description" {
+  description = "Description for the initial node pool launch template"
+  type        = string
+  default     = ""
 }
 
 variable "initial_node_pool_min_size" {
