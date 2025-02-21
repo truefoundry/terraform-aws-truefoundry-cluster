@@ -68,6 +68,7 @@ locals {
     var.initial_node_pool_enabled ? {
       initial = {
         ami_type = var.initial_node_pool_ami_type
+        ami_id   = var.initial_node_pool_ami_id
         block_device_mappings = {
           xvda = {
             device_name = "/dev/xvda"
@@ -87,12 +88,12 @@ locals {
         max_size                        = var.initial_node_pool_max_size
         desired_size                    = var.initial_node_pool_desired_size
         iam_role_attach_cni_policy      = var.initial_node_pool_iam_role_attach_cni_policy
-        iam_role_description            = "TrueFoundry EKS initial node group role for ${var.cluster_name}"
+        iam_role_description            = var.initial_node_pool_iam_role_description != "" ? var.initial_node_pool_iam_role_description : "TrueFoundry EKS initial node group role for ${var.cluster_name}"
         iam_role_tags                   = merge(local.tags, var.initial_node_pool_iam_role_tags)
         iam_role_use_name_prefix        = var.initial_node_pool_iam_role_use_name_prefix
         iam_role_name                   = "${var.cluster_name}-initial"
         instance_types                  = var.initial_node_pool_instance_types
-        launch_template_description     = "TrueFoundry AL2023 EKS initial node group launch template for ${var.cluster_name}"
+        launch_template_description     = var.initial_node_pool_launch_template_description != "" ? var.initial_node_pool_launch_template_description : "TrueFoundry AL2023 EKS initial node group launch template for ${var.cluster_name}"
         launch_template_name            = "${var.cluster_name}-initial"
         launch_template_use_name_prefix = var.initial_node_pool_launch_template_use_name_prefix
         labels                          = var.initial_node_pool_labels
