@@ -85,6 +85,7 @@ locals {
         create_iam_role                 = var.initial_node_pool_create_iam_role
         create_iam_role_policy          = var.initial_node_pool_create_iam_role_policy
         create_launch_template          = var.initial_node_pool_create_node_template
+        enable_bootstrap_user_data      = var.initial_node_pool_enable_bootstrap_user_data
         min_size                        = var.initial_node_pool_min_size
         max_size                        = var.initial_node_pool_max_size
         desired_size                    = var.initial_node_pool_desired_size
