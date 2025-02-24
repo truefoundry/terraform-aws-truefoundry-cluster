@@ -73,9 +73,10 @@ locals {
           xvda = {
             device_name = "/dev/xvda"
             ebs = {
-              volume_size           = 100
+              volume_size           = var.initial_node_pool_volume_size
               volume_type           = "gp3"
               delete_on_termination = true
+              encrypted             = var.initial_node_pool_encryption_enabled
             }
           }
         }
