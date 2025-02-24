@@ -284,6 +284,18 @@ variable "initial_node_pool_launch_template_description" {
   default     = ""
 }
 
+variable "initial_node_pool_volume_size" {
+  description = "Volume size in GB for the initial node pool"
+  type        = number
+  default     = 100
+}
+
+variable "initial_node_pool_encryption_enabled" {
+  description = "Enable encryption for inital node pool"
+  type        = bool
+  default     = true
+}
+
 variable "initial_node_pool_min_size" {
   description = "Minimum size for the initial node pool"
   type        = number
@@ -351,7 +363,7 @@ variable "initial_node_pool_labels" {
   description = "Labels for the initial node pool"
   type        = map(string)
   default = {
-    "truefoundry.cloud" = "initial"
+    "class.truefoundry.com" = "initial"
   }
 }
 ##################################################################################
