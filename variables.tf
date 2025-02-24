@@ -278,6 +278,12 @@ variable "initial_node_pool_create_node_template" {
   default     = true
 }
 
+variable "initial_node_pool_enable_bootstrap_user_data" {
+  description = "Enable bootstrap user data in the user_data template when using a custom AMI. Defaults to false"
+  type        = bool
+  default     = false
+}
+
 variable "initial_node_pool_launch_template_description" {
   description = "Description for the initial node pool launch template"
   type        = string
