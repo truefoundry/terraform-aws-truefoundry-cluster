@@ -29,7 +29,7 @@ module "aws-eks-kubernetes-cluster" {
   cluster_security_group_additional_rules  = merge(local.cluster_security_group_additional_rules, var.cluster_security_group_additional_rules)
   node_security_group_additional_rules     = merge(local.node_security_group_additional_rules, var.node_security_group_additional_rules)
   node_security_group_tags                 = var.node_security_group_tags
-  enable_cluster_creator_admin_permissions = true
+  enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
   authentication_mode                      = var.cluster_authentication_mode
   access_entries                           = var.cluster_access_entries
   fargate_profiles = var.karpenter_fargate_profile_enabled ? {

@@ -116,6 +116,11 @@ variable "cluster_authentication_mode" {
   default     = "API_AND_CONFIG_MAP"
 }
 
+variable "enable_cluster_creator_admin_permissions" {
+  description = "Enable admin permission for the user who created the cluster"
+  default     = true
+  type        = bool
+}
 variable "cluster_access_entries" {
   description = "value of the access entries for the EKS cluster"
   type        = any
