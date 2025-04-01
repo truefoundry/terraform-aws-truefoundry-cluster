@@ -62,6 +62,23 @@ variable "cluster_name" {
   type        = string
 }
 
+variable "cluster_iam_role_enabled" {
+  description = "Enable/Disable creation of cluster IAM role."
+  type        = bool
+  default     = true
+}
+
+variable "cluster_iam_role_arn" {
+  description = "IAM role ARN of the cluster. If cluster_iam_role_enabled is set to true, cluster_iam_role_arn will be used for cluster IAM role."
+  type        = string
+  default     = ""
+
+  validation {
+    condition     = var.cluster_iam_role_enabled || var.cluster_iam_role_arn != ""
+    error_message = "cluster_iam_role_arn must be non-empty if cluster_iam_role_enabled is false"
+  }
+}
+
 variable "cluster_enabled_log_types" {
   description = "A list of the desired control plane logs to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)"
   type        = list(string)
@@ -275,6 +292,17 @@ variable "initial_node_pool_create_iam_role_policy" {
   description = "Create IAM role policy for the initial node pool"
   type        = bool
   default     = true
+}
+
+variable "initial_node_pool_iam_role_arn" {
+  description = "IAM role ARN for the initial node pool"
+  type        = string
+  default     = ""
+
+  validation {
+    condition     = var.initial_node_pool_create_iam_role || var.initial_node_pool_iam_role_arn != ""
+    error_message = "initial_node_pool_iam_role_arn must be non-empty if initial_node_pool_create_iam_role is false."
+  }
 }
 
 variable "initial_node_pool_create_node_template" {

@@ -8,6 +8,8 @@ module "aws-eks-kubernetes-cluster" {
   version                               = "v20.33.1"
   cluster_name                          = var.cluster_name
   cluster_version                       = var.cluster_version
+  create_iam_role                       = var.cluster_iam_role_enabled
+  iam_role_arn                          = var.cluster_iam_role_arn
   cluster_enabled_log_types             = var.enable_cluster_log ? var.cluster_enabled_log_types : []
   cluster_additional_security_group_ids = var.cluster_additional_security_group_ids
   subnet_ids                            = var.subnet_ids
