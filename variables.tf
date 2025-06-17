@@ -405,6 +405,38 @@ variable "initial_node_pool_labels" {
     "class.truefoundry.com" = "initial"
   }
 }
+
+##################################################################################
+## EKS addons
+##################################################################################
+
+variable "enable_coredns" {
+  description = "Enable the CoreDNS addon"
+  type        = bool
+  default     = true
+}
+
+variable "enable_vpc_cni" {
+  description = "Enable the VPC CNI addon"
+  type        = bool
+  default     = true
+}
+
+variable "enable_kube_proxy" {
+  description = "Enable the kube-proxy addon"
+  type        = bool
+  default     = true
+}
+
+variable "enable_eks_pod_identity_agent" {
+  description = "Enable the EKS Pod Identity Agent addon"
+  type        = bool
+  default     = false
+}
+
+
+
+
 ##################################################################################
 ## Other variables
 ##################################################################################
