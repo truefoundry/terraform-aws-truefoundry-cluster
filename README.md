@@ -59,7 +59,11 @@ Truefoundry EKS Module
 | <a name="input_eks_managed_node_group_defaults"></a> [eks\_managed\_node\_group\_defaults](#input\_eks\_managed\_node\_group\_defaults) | Managed node group defaults | `any` | `{}` | no |
 | <a name="input_enable_cluster_creator_admin_permissions"></a> [enable\_cluster\_creator\_admin\_permissions](#input\_enable\_cluster\_creator\_admin\_permissions) | Enable admin permission for the user who created the cluster | `bool` | `true` | no |
 | <a name="input_enable_cluster_log"></a> [enable\_cluster\_log](#input\_enable\_cluster\_log) | Enable cluster control plane logs | `bool` | `true` | no |
+| <a name="input_enable_coredns"></a> [enable\_coredns](#input\_enable\_coredns) | Enable the CoreDNS addon | `bool` | `true` | no |
+| <a name="input_enable_eks_pod_identity_agent"></a> [enable\_eks\_pod\_identity\_agent](#input\_enable\_eks\_pod\_identity\_agent) | Enable the EKS Pod Identity Agent addon | `bool` | `false` | no |
 | <a name="input_enable_irsa"></a> [enable\_irsa](#input\_enable\_irsa) | Determines whether to create an OpenID Connect Provider for EKS to enable IRSA | `bool` | `true` | no |
+| <a name="input_enable_kube_proxy"></a> [enable\_kube\_proxy](#input\_enable\_kube\_proxy) | Enable the kube-proxy addon | `bool` | `true` | no |
+| <a name="input_enable_vpc_cni"></a> [enable\_vpc\_cni](#input\_enable\_vpc\_cni) | Enable the VPC CNI addon | `bool` | `true` | no |
 | <a name="input_existing_cluster_node_role_arn"></a> [existing\_cluster\_node\_role\_arn](#input\_existing\_cluster\_node\_role\_arn) | IAM node role ARN for an existing cluster. This will only be used when use\_existing\_cluster is true | `string` | `""` | no |
 | <a name="input_existing_cluster_node_security_group_id"></a> [existing\_cluster\_node\_security\_group\_id](#input\_existing\_cluster\_node\_security\_group\_id) | Node security group for an existing cluster. This will only be used when use\_existing\_cluster is true. | `string` | `""` | no |
 | <a name="input_existing_cluster_oidc_issuer_arn"></a> [existing\_cluster\_oidc\_issuer\_arn](#input\_existing\_cluster\_oidc\_issuer\_arn) | OIDC issuer ARN for an existing cluster. This will only be used when use\_existing\_cluster is true. | `string` | `""` | no |

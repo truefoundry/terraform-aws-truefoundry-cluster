@@ -13,24 +13,7 @@ module "eks_blueprints_addons" {
   oidc_provider_arn = module.aws-eks-kubernetes-cluster[0].oidc_provider_arn
   observability_tag = var.cluster_addons_observability_tag
 
-  eks_addons = {
-    coredns = {
-      addon_version        = var.cluster_addons_coredns_version
-      configuration_values = jsonencode(var.cluster_addons_coredns_additional_configurations)
-    }
-    vpc-cni = {
-      addon_version        = var.cluster_addons_vpc_cni_version
-      configuration_values = jsonencode(var.cluster_addons_vpc_cni_additional_configurations)
-    }
-    kube-proxy = {
-      addon_version        = var.cluster_addons_kube_proxy_version
-      configuration_values = jsonencode(var.cluster_addons_kube_proxy_additional_configurations)
-    }
-    eks-pod-identity-agent = {
-      addon_version        = var.cluster_addons_eks_pod_identity_agent_version
-      configuration_values = jsonencode(var.cluster_addons_eks_pod_identity_agent_additional_configurations)
-    }
-  }
+  eks_addons = local.eks_addons
 
   tags = local.tags
 }
