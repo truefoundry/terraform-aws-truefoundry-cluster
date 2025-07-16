@@ -30,7 +30,7 @@ locals {
       description = "Node to node all ports/protocols"
       protocol    = "-1"
       from_port   = 0
-      to_port     = 1024
+      to_port     = 0
       type        = "ingress"
       self        = true
     }
