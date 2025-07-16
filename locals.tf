@@ -26,13 +26,22 @@ locals {
   }
 
   node_security_group_additional_rules = {
-    ingress_self_all = {
-      description = "Node to node all ports/protocols"
-      protocol    = "-1"
-      from_port   = 0
-      to_port     = 0
-      type        = "ingress"
-      self        = true
+    # ingress_self_all = {
+    #   description = "Node to node all ports/protocols"
+    #   protocol    = "-1"
+    #   from_port   = 0
+    #   to_port     = 0
+    #   type        = "ingress"
+    #   self        = true
+    # }
+
+    istiod_webhook_ingress = {
+      description                   = "Istio webhook ingress"
+      protocol                      = "tcp"
+      from_port                     = 15017
+      to_port                       = 15017
+      type                          = "ingress"
+      source_cluster_security_group = true
     }
 
     egress_all = {
