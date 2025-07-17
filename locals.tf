@@ -141,28 +141,28 @@ locals {
   })
 
   eks_addons = merge(
-    var.enable_coredns ? {
+    var.cluster_addons_coredns_enable ? {
       coredns = {
         addon_version        = var.cluster_addons_coredns_version
         configuration_values = jsonencode(var.cluster_addons_coredns_additional_configurations)
       }
     } : {},
 
-    var.enable_vpc_cni ? {
+    var.cluster_addons_vpc_cni_enable ? {
       vpc-cni = {
         addon_version        = var.cluster_addons_vpc_cni_version
         configuration_values = jsonencode(var.cluster_addons_vpc_cni_additional_configurations)
       }
     } : {},
 
-    var.enable_kube_proxy ? {
+    var.cluster_addons_kube_proxy_enable ? {
       kube-proxy = {
         addon_version        = var.cluster_addons_kube_proxy_version
         configuration_values = jsonencode(var.cluster_addons_kube_proxy_additional_configurations)
       }
     } : {},
 
-    var.enable_eks_pod_identity_agent ? {
+    var.cluster_addons_eks_pod_identity_agent_enable ? {
       eks-pod-identity-agent = {
         addon_version        = var.cluster_addons_eks_pod_identity_agent_version
         configuration_values = jsonencode(var.cluster_addons_eks_pod_identity_agent_additional_configurations)
