@@ -124,7 +124,7 @@ variable "cluster_endpoint_public_access_cidrs" {
 variable "cluster_version" {
   description = "EKS cluster version"
   type        = string
-  default     = "1.32"
+  default     = "1.33"
 }
 
 variable "cluster_authentication_mode" {
@@ -407,37 +407,6 @@ variable "initial_node_pool_labels" {
 }
 
 ##################################################################################
-## EKS addons
-##################################################################################
-
-variable "enable_coredns" {
-  description = "Enable the CoreDNS addon"
-  type        = bool
-  default     = true
-}
-
-variable "enable_vpc_cni" {
-  description = "Enable the VPC CNI addon"
-  type        = bool
-  default     = true
-}
-
-variable "enable_kube_proxy" {
-  description = "Enable the kube-proxy addon"
-  type        = bool
-  default     = true
-}
-
-variable "enable_eks_pod_identity_agent" {
-  description = "Enable the EKS Pod Identity Agent addon"
-  type        = bool
-  default     = false
-}
-
-
-
-
-##################################################################################
 ## Other variables
 ##################################################################################
 variable "tags" {
@@ -476,16 +445,16 @@ variable "karpenter_fargate_profile_attach_cni_policy" {
 ##################################################################################
 ## EKS addons
 ##################################################################################
-# variable "cluster_addons_coredns_enable" {
-#   description = "Enable the CoreDNS addon"
-#   type        = bool
-#   default     = true
-# }
+variable "cluster_addons_coredns_enable" {
+  description = "Enable the CoreDNS addon"
+  type        = bool
+  default     = true
+}
 
 variable "cluster_addons_coredns_version" {
   description = "Version of the CoreDNS addon"
   type        = string
-  default     = "v1.11.4-eksbuild.2"
+  default     = "v1.12.2-eksbuild.1"
 }
 
 variable "cluster_addons_coredns_additional_configurations" {
@@ -494,16 +463,16 @@ variable "cluster_addons_coredns_additional_configurations" {
   default     = {}
 }
 
-# variable "cluster_addons_vpc_cni_enable" {
-#   description = "Enable the VPC CNI addon"
-#   type        = bool
-#   default     = true
-# }
+variable "cluster_addons_vpc_cni_enable" {
+  description = "Enable the VPC CNI addon"
+  type        = bool
+  default     = true
+}
 
 variable "cluster_addons_vpc_cni_version" {
   description = "Version of the VPC CNI addon"
   type        = string
-  default     = "v1.19.2-eksbuild.5"
+  default     = "v1.19.6-eksbuild.1"
 }
 
 variable "cluster_addons_vpc_cni_additional_configurations" {
@@ -512,16 +481,16 @@ variable "cluster_addons_vpc_cni_additional_configurations" {
   default     = {}
 }
 
-# variable "cluster_addons_kube_proxy_enable" {
-#   description = "Enable the kube-proxy addon"
-#   type        = bool
-#   default     = true
-# }
+variable "cluster_addons_kube_proxy_enable" {
+  description = "Enable the kube-proxy addon"
+  type        = bool
+  default     = true
+}
 
 variable "cluster_addons_kube_proxy_version" {
   description = "Version of the kube-proxy addon"
   type        = string
-  default     = "v1.32.0-eksbuild.2"
+  default     = "v1.33.0-eksbuild.2"
 }
 
 variable "cluster_addons_kube_proxy_additional_configurations" {
@@ -530,11 +499,11 @@ variable "cluster_addons_kube_proxy_additional_configurations" {
   default     = {}
 }
 
-# variable "cluster_addons_eks_pod_identity_agent_enable" {
-#   description = "Enable the EKS Pod Identity Agent addon"
-#   type        = bool
-#   default     = false
-# }
+variable "cluster_addons_eks_pod_identity_agent_enable" {
+  description = "Enable the EKS Pod Identity Agent addon"
+  type        = bool
+  default     = false
+}
 
 variable "cluster_addons_eks_pod_identity_agent_version" {
   description = "Version of the EKS Pod Identity Agent addon"
