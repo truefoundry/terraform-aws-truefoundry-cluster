@@ -14,17 +14,8 @@ locals {
     },
     var.tags
   )
-  cluster_security_group_additional_rules = {
-    egress_nodes_ephemeral_ports_tcp = {
-      description                = "To node 1025-65535"
-      protocol                   = "tcp"
-      from_port                  = 1025
-      to_port                    = 65535
-      type                       = "egress"
-      source_node_security_group = true
-    }
-  }
 
+  # Default node security group rule only allows ephemeral ports 1025-65535. https://github.com/terraform-aws-modules/terraform-aws-eks/issues/1779#issuecomment-1203398170
   node_security_group_additional_rules = {
     ingress_self_all = {
       description = "Node to node all ports/protocols"
@@ -35,8 +26,8 @@ locals {
       self        = true
     }
 
-    istiod_webhook_ingress = {
-      description                   = "Istio webhook ingress"
+    truefoundry_istiod_webhook_ingress = {
+      description                   = "Cluster API to node 15017/tcp for istiod webhook"
       protocol                      = "tcp"
       from_port                     = 15017
       to_port                       = 15017
@@ -61,15 +52,6 @@ locals {
       to_port     = 10250
       type        = "ingress"
       self        = true
-    }
-
-    metrics_server_10250_eg = {
-      description = "Node to node metrics server 10250 egress port"
-      protocol    = "tcp"
-      from_port   = 10250
-      to_port     = 10250
-      type        = "egress"
-      self        = true # Does not work for fargate
     }
   }
 
