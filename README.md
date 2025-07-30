@@ -28,6 +28,7 @@ Truefoundry EKS Module
 | Name | Type |
 |------|------|
 | [aws_eks_cluster.eks_cluster](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_cluster) | data source |
+| [aws_partition.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/partition) | data source |
 
 ## Inputs
 
@@ -80,7 +81,7 @@ Truefoundry EKS Module
 | <a name="input_initial_node_pool_enable_bootstrap_user_data"></a> [initial\_node\_pool\_enable\_bootstrap\_user\_data](#input\_initial\_node\_pool\_enable\_bootstrap\_user\_data) | Enable bootstrap user data in the user\_data template when using a custom AMI. Defaults to false | `bool` | `false` | no |
 | <a name="input_initial_node_pool_enabled"></a> [initial\_node\_pool\_enabled](#input\_initial\_node\_pool\_enabled) | Create al2023 initial node pool for EKS managed node group | `bool` | `true` | no |
 | <a name="input_initial_node_pool_encryption_enabled"></a> [initial\_node\_pool\_encryption\_enabled](#input\_initial\_node\_pool\_encryption\_enabled) | Enable encryption for inital node pool | `bool` | `true` | no |
-| <a name="input_initial_node_pool_iam_role_additional_policies"></a> [initial\_node\_pool\_iam\_role\_additional\_policies](#input\_initial\_node\_pool\_iam\_role\_additional\_policies) | Additional policies to be added to the IAM role for the initial node pool | `map(string)` | <pre>{<br/>  "karpenter": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"<br/>}</pre> | no |
+| <a name="input_initial_node_pool_iam_role_additional_policies"></a> [initial\_node\_pool\_iam\_role\_additional\_policies](#input\_initial\_node\_pool\_iam\_role\_additional\_policies) | Additional policies to be added to the IAM role for the initial node pool. Example { karpenter = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore" } | `map(string)` | `{}` | no |
 | <a name="input_initial_node_pool_iam_role_arn"></a> [initial\_node\_pool\_iam\_role\_arn](#input\_initial\_node\_pool\_iam\_role\_arn) | IAM role ARN for the initial node pool | `string` | `""` | no |
 | <a name="input_initial_node_pool_iam_role_attach_cni_policy"></a> [initial\_node\_pool\_iam\_role\_attach\_cni\_policy](#input\_initial\_node\_pool\_iam\_role\_attach\_cni\_policy) | Attach CNI policy to IAM role for the initial node pool | `bool` | `true` | no |
 | <a name="input_initial_node_pool_iam_role_description"></a> [initial\_node\_pool\_iam\_role\_description](#input\_initial\_node\_pool\_iam\_role\_description) | Description for the IAM role of the initial node pool | `string` | `""` | no |
