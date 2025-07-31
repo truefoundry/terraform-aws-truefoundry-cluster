@@ -366,12 +366,9 @@ variable "initial_node_pool_iam_role_tags" {
 }
 
 variable "initial_node_pool_iam_role_additional_policies" {
-  description = "Additional policies to be added to the IAM role for the initial node pool"
+  description = "Additional policies to be added to the IAM role for the initial node pool. Example { karpenter = \"arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore\" }"
   type        = map(string)
-  default = {
-    # Required by Karpenter
-    karpenter = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-  }
+  default     = {}
 }
 
 variable "initial_node_pool_iam_role_use_name_prefix" {

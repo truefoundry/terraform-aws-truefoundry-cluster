@@ -3,5 +3,7 @@ data "aws_eks_cluster" "eks_cluster" {
   name  = var.cluster_name
 }
 
+data "aws_partition" "current" {}
+
 # To do
 # apply data block for openid_connect_provider to fetch openid arn directly using eks cluster oidc[0].issuer[0].url
