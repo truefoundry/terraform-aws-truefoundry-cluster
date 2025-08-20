@@ -13,44 +13,24 @@ variable "existing_cluster_node_role_arn" {
   description = "IAM node role ARN for an existing cluster. This will only be used when use_existing_cluster is true"
   default     = ""
   type        = string
-
-  validation {
-    condition     = var.use_existing_cluster == false || var.existing_cluster_node_role_arn != ""
-    error_message = "existing_cluster_node_role_arn must be non-empty if use_existing_cluster is true."
-  }
 }
 
 variable "existing_cluster_node_security_group_id" {
   description = "Node security group for an existing cluster. This will only be used when use_existing_cluster is true."
   default     = ""
   type        = string
-
-  validation {
-    condition     = var.use_existing_cluster == false || var.existing_cluster_node_security_group_id != ""
-    error_message = "existing_cluster_node_security_group_id must be non-empty if use_existing_cluster is true."
-  }
 }
 
 variable "existing_cluster_oidc_issuer_arn" {
   description = "OIDC issuer ARN for an existing cluster. This will only be used when use_existing_cluster is true."
   default     = ""
   type        = string
-
-  validation {
-    condition     = var.use_existing_cluster == false || var.existing_cluster_oidc_issuer_arn != ""
-    error_message = "existing_cluster_oidc_issuer_arn must be non-empty if use_existing_cluster is true."
-  }
 }
 
 variable "existing_cluster_oidc_issuer_url" {
   description = "OIDC issuer URL for an existing cluster. This will only be used when use_existing_cluster is true."
   default     = ""
   type        = string
-
-  validation {
-    condition     = var.use_existing_cluster == false || var.existing_cluster_oidc_issuer_url != ""
-    error_message = "existing_cluster_oidc_issuer_url must be non-empty if use_existing_cluster is true."
-  }
 }
 
 ################################################################################
@@ -72,11 +52,6 @@ variable "cluster_iam_role_arn" {
   description = "IAM role ARN of the cluster. If cluster_iam_role_enabled is set to true, cluster_iam_role_arn will be used for cluster IAM role."
   type        = string
   default     = ""
-
-  validation {
-    condition     = var.cluster_iam_role_enabled || var.cluster_iam_role_arn != ""
-    error_message = "cluster_iam_role_arn must be non-empty if cluster_iam_role_enabled is false"
-  }
 }
 
 variable "cluster_enabled_log_types" {
@@ -298,11 +273,6 @@ variable "initial_node_pool_iam_role_arn" {
   description = "IAM role ARN for the initial node pool"
   type        = string
   default     = ""
-
-  validation {
-    condition     = var.initial_node_pool_create_iam_role || var.initial_node_pool_iam_role_arn != ""
-    error_message = "initial_node_pool_iam_role_arn must be non-empty if initial_node_pool_create_iam_role is false."
-  }
 }
 
 variable "initial_node_pool_create_node_template" {
