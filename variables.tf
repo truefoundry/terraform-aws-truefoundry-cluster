@@ -373,6 +373,12 @@ variable "initial_node_pool_labels" {
   }
 }
 
+variable "initial_node_pool_node_repair_enabled" {
+  description = "Enable node auto repair for the initial node pool"
+  type        = bool
+  default     = true
+}
+
 ##################################################################################
 ## Other variables
 ##################################################################################
@@ -488,10 +494,4 @@ variable "cluster_addons_observability_tag" {
   description = "Tag to identify EKS Blueprints usage within observability tools. Keep this value to null to disable telemetry"
   type        = string
   default     = "qs-1ubotj5kl"
-}
-
-variable "initial_node_pool_node_repair_enabled" {
-  description = "Enable node auto repair for the initial node pool"
-  type        = bool
-  default     = true
 }
