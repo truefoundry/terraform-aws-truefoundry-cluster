@@ -156,13 +156,6 @@ locals {
         addon_version        = var.cluster_addons_eks_pod_identity_agent_version
         configuration_values = jsonencode(var.cluster_addons_eks_pod_identity_agent_additional_configurations)
       }
-    } : {},
-
-    var.cluster_addons_node_monitoring_agent_enable ? {
-      eks-node-monitoring-agent = {
-        addon_version        = var.cluster_addons_node_monitoring_agent_version
-        configuration_values = jsonencode(var.cluster_addons_node_monitoring_agent_additional_configurations)
-      }
     } : {}
   )
 
