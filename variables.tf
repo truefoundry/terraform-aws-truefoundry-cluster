@@ -493,13 +493,13 @@ variable "cluster_addons_observability_tag" {
 variable "cluster_addons_node_monitoring_agent_enable" {
   description = "Enable the EKS Node Monitoring Agent addon for node health monitoring and auto repair"
   type        = bool
-  default     = true
+  default     = false
 }
 
 variable "cluster_addons_node_monitoring_agent_version" {
   description = "Version of the EKS Node Monitoring Agent addon"
   type        = string
-  default     = "v1.0.0-eksbuild.1"
+  default     = "v1.4.0-eksbuild.2"
 }
 
 variable "cluster_addons_node_monitoring_agent_additional_configurations" {
