@@ -489,3 +489,27 @@ variable "cluster_addons_observability_tag" {
   type        = string
   default     = "qs-1ubotj5kl"
 }
+
+variable "cluster_addons_node_monitoring_agent_enable" {
+  description = "Enable the EKS Node Monitoring Agent addon for node health monitoring and auto repair"
+  type        = bool
+  default     = true
+}
+
+variable "cluster_addons_node_monitoring_agent_version" {
+  description = "Version of the EKS Node Monitoring Agent addon"
+  type        = string
+  default     = "v1.0.0-eksbuild.1"
+}
+
+variable "cluster_addons_node_monitoring_agent_additional_configurations" {
+  description = "Additional configurations for the node monitoring agent addon"
+  type        = any
+  default     = {}
+}
+
+variable "initial_node_pool_node_repair_enabled" {
+  description = "Enable node auto repair for the initial node pool"
+  type        = bool
+  default     = true
+}

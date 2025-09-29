@@ -99,6 +99,9 @@ locals {
         name             = "${var.cluster_name}-initial"
         metadata_options = var.initial_node_pool_metadata_options
         tags             = local.karpenter_tags
+        node_repair_config = {
+          enabled = var.initial_node_pool_node_repair_enabled
+        }
       }
   } : {})
 
@@ -152,6 +155,13 @@ locals {
       eks-pod-identity-agent = {
         addon_version        = var.cluster_addons_eks_pod_identity_agent_version
         configuration_values = jsonencode(var.cluster_addons_eks_pod_identity_agent_additional_configurations)
+      }
+    } : {},
+
+    var.cluster_addons_node_monitoring_agent_enable ? {
+      eks-node-monitoring-agent = {
+        addon_version        = var.cluster_addons_node_monitoring_agent_version
+        configuration_values = jsonencode(var.cluster_addons_node_monitoring_agent_additional_configurations)
       }
     } : {}
   )
