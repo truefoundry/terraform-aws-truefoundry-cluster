@@ -68,6 +68,7 @@ locals {
               volume_type           = "gp3"
               delete_on_termination = true
               encrypted             = var.initial_node_pool_encryption_enabled
+              kms_key_id            = var.initial_node_pool_kms_key_id
             }
           }
         }

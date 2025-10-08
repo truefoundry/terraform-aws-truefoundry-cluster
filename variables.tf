@@ -305,6 +305,12 @@ variable "initial_node_pool_encryption_enabled" {
   default     = true
 }
 
+variable "initial_node_pool_kms_key_id" {
+  description = "KMS (CMK) ARN to use for the initial node pool encryption"
+  type        = string
+  default     = ""
+}
+
 variable "initial_node_pool_min_size" {
   description = "Minimum size for the initial node pool"
   type        = number
