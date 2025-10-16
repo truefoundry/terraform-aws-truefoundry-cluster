@@ -100,6 +100,9 @@ locals {
         name             = "${var.cluster_name}-initial"
         metadata_options = var.initial_node_pool_metadata_options
         tags             = local.karpenter_tags
+        node_repair_config = {
+          enabled = var.initial_node_pool_node_repair_enabled
+        }
       }
   } : {})
 

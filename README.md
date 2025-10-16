@@ -95,6 +95,7 @@ Truefoundry EKS Module
 | <a name="input_initial_node_pool_max_size"></a> [initial\_node\_pool\_max\_size](#input\_initial\_node\_pool\_max\_size) | Maximum size for the initial node pool | `number` | `2` | no |
 | <a name="input_initial_node_pool_metadata_options"></a> [initial\_node\_pool\_metadata\_options](#input\_initial\_node\_pool\_metadata\_options) | Metadata options for the initial node pool | `map(string)` | `{}` | no |
 | <a name="input_initial_node_pool_min_size"></a> [initial\_node\_pool\_min\_size](#input\_initial\_node\_pool\_min\_size) | Minimum size for the initial node pool | `number` | `2` | no |
+| <a name="input_initial_node_pool_node_repair_enabled"></a> [initial\_node\_pool\_node\_repair\_enabled](#input\_initial\_node\_pool\_node\_repair\_enabled) | Enable node auto repair for the initial node pool | `bool` | `true` | no |
 | <a name="input_initial_node_pool_volume_size"></a> [initial\_node\_pool\_volume\_size](#input\_initial\_node\_pool\_volume\_size) | Volume size in GB for the initial node pool | `number` | `100` | no |
 | <a name="input_karpenter_fargate_profile_attach_cni_policy"></a> [karpenter\_fargate\_profile\_attach\_cni\_policy](#input\_karpenter\_fargate\_profile\_attach\_cni\_policy) | Attach CNI policy to IAM role for Karpenter Fargate profile | `bool` | `true` | no |
 | <a name="input_karpenter_fargate_profile_create_iam_role"></a> [karpenter\_fargate\_profile\_create\_iam\_role](#input\_karpenter\_fargate\_profile\_create\_iam\_role) | Create IAM role for Karpenter Fargate profile | `bool` | `true` | no |

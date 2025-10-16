@@ -379,6 +379,12 @@ variable "initial_node_pool_labels" {
   }
 }
 
+variable "initial_node_pool_node_repair_enabled" {
+  description = "Enable node auto repair for the initial node pool"
+  type        = bool
+  default     = true
+}
+
 ##################################################################################
 ## Other variables
 ##################################################################################
