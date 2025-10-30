@@ -15,6 +15,8 @@ locals {
     var.tags
   )
 
+  cluster_iam_role_name = format("%s%s", substr(var.cluster_name, 0, 29), "-cluster")
+
   # Default node security group rule only allows ephemeral ports 1025-65535. https://github.com/terraform-aws-modules/terraform-aws-eks/issues/1779#issuecomment-1203398170
   node_security_group_additional_rules = {
     ingress_self_all = {
