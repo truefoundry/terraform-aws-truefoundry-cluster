@@ -10,7 +10,7 @@ module "aws-eks-kubernetes-cluster" {
   cluster_version                       = var.cluster_version
   create_iam_role                       = var.cluster_iam_role_enabled
   iam_role_arn                          = var.cluster_iam_role_arn
-  iam_role_use_name_prefix              = true
+  iam_role_use_name_prefix              = var.cluster_iam_role_use_name_prefix
   iam_role_name                         = local.cluster_iam_role_name
   cluster_enabled_log_types             = var.enable_cluster_log ? var.cluster_enabled_log_types : []
   cluster_additional_security_group_ids = var.cluster_additional_security_group_ids
