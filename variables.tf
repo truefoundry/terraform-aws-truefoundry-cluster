@@ -54,6 +54,12 @@ variable "cluster_iam_role_arn" {
   default     = ""
 }
 
+variable "cluster_iam_role_use_name_prefix" {
+  description = "Use name prefix for cluster IAM role."
+  type        = bool
+  default     = true
+}
+
 variable "cluster_enabled_log_types" {
   description = "A list of the desired control plane logs to enable. For more information, see Amazon EKS Control Plane Logging documentation (https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html)"
   type        = list(string)

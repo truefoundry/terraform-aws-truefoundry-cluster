@@ -15,6 +15,8 @@ locals {
     var.tags
   )
 
+  cluster_iam_role_name = format("%s%s", substr(var.cluster_name, 0, 29), "-cluster")
+
   # Default node security group rule only allows ephemeral ports 1025-65535. https://github.com/terraform-aws-modules/terraform-aws-eks/issues/1779#issuecomment-1203398170
   node_security_group_additional_rules = {
     ingress_self_all = {
@@ -55,6 +57,8 @@ locals {
     }
   }
 
+  node_group_use_name_prefix = try(var.eks_managed_node_group_defaults.use_name_prefix, true)
+
   node_groups = merge(var.additional_eks_managed_node_groups,
     var.initial_node_pool_enabled ? {
       initial = {
@@ -86,7 +90,7 @@ locals {
         iam_role_description            = var.initial_node_pool_iam_role_description != "" ? var.initial_node_pool_iam_role_description : "TrueFoundry EKS initial node group role for ${var.cluster_name}"
         iam_role_tags                   = merge(local.tags, var.initial_node_pool_iam_role_tags)
         iam_role_use_name_prefix        = var.initial_node_pool_iam_role_use_name_prefix
-        iam_role_name                   = "${var.cluster_name}-initial"
+        iam_role_name                   = var.initial_node_pool_iam_role_use_name_prefix ? format("%s%s", substr(var.cluster_name, 0, 29), "-initial") : "${var.cluster_name}-initial"
         instance_types                  = var.initial_node_pool_instance_types
         launch_template_description     = var.initial_node_pool_launch_template_description != "" ? var.initial_node_pool_launch_template_description : "TrueFoundry AL2023 EKS initial node group launch template for ${var.cluster_name}"
         launch_template_name            = "${var.cluster_name}-initial"
@@ -97,7 +101,8 @@ locals {
             karpenter = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"
           },
         var.initial_node_pool_iam_role_additional_policies)
-        name             = "${var.cluster_name}-initial"
+        use_name_prefix  = local.node_group_use_name_prefix
+        name             = local.node_group_use_name_prefix ? format("%s%s", substr(var.cluster_name, 0, 28), "-initial") : "${var.cluster_name}-initial"
         metadata_options = var.initial_node_pool_metadata_options
         tags             = local.karpenter_tags
         node_repair_config = {
