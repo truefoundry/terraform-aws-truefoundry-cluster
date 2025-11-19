@@ -391,6 +391,108 @@ variable "initial_node_pool_node_repair_enabled" {
   default     = true
 }
 
+variable "initial_node_pool_pre_bootstrap_user_data" {
+  description = <<-DESC
+    Pre bootstrap user data for the initial node pool.
+    
+    Note: This should be used for AL2 and Linux AMIs (not AL2023).
+    
+    Example:
+    ```bash
+    #!/bin/bash
+    mkdir -p /tmp/bootstrap
+    echo "Hello, World!" > /tmp/bootstrap/hello.txt
+    ```
+  DESC
+  type        = string
+  default     = ""
+}
+
+variable "initial_node_pool_post_bootstrap_user_data" {
+  description = <<-DESC
+    Post bootstrap user data for the initial node pool.
+    
+    Note: This should be used for AL2 and Linux AMIs (not AL2023).
+    
+    Example:
+    ```bash
+    #!/bin/bash
+    mkdir -p /tmp/bootstrap
+    echo "Hello, World!" > /tmp/bootstrap/hello.txt
+    ```
+  DESC
+  type        = string
+  default     = ""
+
+  validation {
+    condition     = var.initial_node_pool_post_bootstrap_user_data == "" || var.initial_node_pool_enable_bootstrap_user_data
+    error_message = "'initial_node_pool_enable_bootstrap_user_data' must be enabled when 'initial_node_pool_post_bootstrap_user_data' is present"
+  }
+}
+
+variable "initial_node_pool_cloudinit_pre_nodeadm" {
+  description = <<-DESC
+    Array of cloud-init document parts that are created before the nodeadm document part.
+
+    Note: This should be used for AL2023.
+    
+    Example:
+    ```
+    [
+      {
+        content_type = "text/x-shellscript"
+        content = <<-EOT
+          #!/bin/bash
+          mkdir -p /tmp/bootstrap
+          echo "Hello, World!" > /tmp/bootstrap/hello.txt
+        EOT
+      }
+    ]
+    ```
+  DESC
+  type = list(object({
+    content      = string
+    content_type = optional(string)
+    filename     = optional(string)
+    merge_type   = optional(string)
+  }))
+  default = []
+}
+
+variable "initial_node_pool_cloudinit_post_nodeadm" {
+  description = <<-DESC
+    Array of cloud-init document parts that are created after the nodeadm document part.
+
+    Note: This should be used for AL2023.
+    
+    Example:
+    ```
+    [
+      {
+        content_type = "text/x-shellscript"
+        content = <<-EOT
+          #!/bin/bash
+          mkdir -p /tmp/bootstrap
+          echo "Hello, World!" > /tmp/bootstrap/hello.txt
+        EOT
+      }
+    ]
+    ```
+  DESC
+  type = list(object({
+    content      = string
+    content_type = optional(string)
+    filename     = optional(string)
+    merge_type   = optional(string)
+  }))
+  default = []
+
+  validation {
+    condition     = length(var.initial_node_pool_cloudinit_post_nodeadm) == 0 || var.initial_node_pool_enable_bootstrap_user_data
+    error_message = "'initial_node_pool_enable_bootstrap_user_data' must be enabled when 'initial_node_pool_cloudinit_post_nodeadm' is not empty"
+  }
+}
+
 ##################################################################################
 ## Other variables
 ##################################################################################
