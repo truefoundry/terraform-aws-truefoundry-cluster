@@ -83,6 +83,10 @@ locals {
         iam_role_arn                    = var.initial_node_pool_iam_role_arn
         create_launch_template          = var.initial_node_pool_create_node_template
         enable_bootstrap_user_data      = var.initial_node_pool_enable_bootstrap_user_data
+        cloudinit_pre_nodeadm           = var.initial_node_pool_cloudinit_pre_nodeadm
+        cloudinit_post_nodeadm          = var.initial_node_pool_cloudinit_post_nodeadm
+        pre_bootstrap_user_data         = var.initial_node_pool_pre_bootstrap_user_data
+        post_bootstrap_user_data        = var.initial_node_pool_post_bootstrap_user_data
         min_size                        = var.initial_node_pool_min_size
         max_size                        = var.initial_node_pool_max_size
         desired_size                    = var.initial_node_pool_desired_size
