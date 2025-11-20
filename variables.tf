@@ -395,7 +395,7 @@ variable "initial_node_pool_pre_bootstrap_user_data" {
   description = <<-DESC
     Pre bootstrap user data for the initial node pool.
     
-    Note: This should be used for AL2 and Linux AMIs (not AL2023).
+    Note: This should be used for Linux AMIs (not AL2023).
     
     Example:
     ```bash
@@ -412,7 +412,7 @@ variable "initial_node_pool_post_bootstrap_user_data" {
   description = <<-DESC
     Post bootstrap user data for the initial node pool.
     
-    Note: This should be used for AL2 and Linux AMIs (not AL2023).
+    Note: This should be used for Linux AMIs (not AL2023).
     
     Example:
     ```bash
