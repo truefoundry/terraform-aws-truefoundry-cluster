@@ -105,7 +105,7 @@ variable "cluster_endpoint_public_access_cidrs" {
 variable "cluster_version" {
   description = "EKS cluster version"
   type        = string
-  default     = "1.33"
+  default     = "1.34"
 }
 
 variable "cluster_authentication_mode" {
@@ -539,9 +539,9 @@ variable "cluster_addons_coredns_enable" {
 }
 
 variable "cluster_addons_coredns_version" {
-  description = "Version of the CoreDNS addon"
+  description = "Version of the CoreDNS addon. If not provided, the latest version will be used which is compatible with cluster_version."
   type        = string
-  default     = "v1.12.2-eksbuild.1"
+  default     = ""
 }
 
 variable "cluster_addons_coredns_additional_configurations" {
@@ -557,9 +557,9 @@ variable "cluster_addons_vpc_cni_enable" {
 }
 
 variable "cluster_addons_vpc_cni_version" {
-  description = "Version of the VPC CNI addon"
+  description = "Version of the VPC CNI addon. If not provided, the latest version will be used which is compatible with cluster_version."
   type        = string
-  default     = "v1.19.6-eksbuild.1"
+  default     = ""
 }
 
 variable "cluster_addons_vpc_cni_additional_configurations" {
@@ -575,9 +575,9 @@ variable "cluster_addons_kube_proxy_enable" {
 }
 
 variable "cluster_addons_kube_proxy_version" {
-  description = "Version of the kube-proxy addon"
+  description = "Version of the kube-proxy addon. If not provided, the latest version will be used which is compatible with cluster_version."
   type        = string
-  default     = "v1.33.0-eksbuild.2"
+  default     = ""
 }
 
 variable "cluster_addons_kube_proxy_additional_configurations" {
@@ -593,9 +593,9 @@ variable "cluster_addons_eks_pod_identity_agent_enable" {
 }
 
 variable "cluster_addons_eks_pod_identity_agent_version" {
-  description = "Version of the EKS Pod Identity Agent addon"
+  description = "Version of the EKS Pod Identity Agent addon. If not provided, the latest version will be used which is compatible with cluster_version."
   type        = string
-  default     = "v1.3.4-eksbuild.1"
+  default     = ""
 }
 
 variable "cluster_addons_eks_pod_identity_agent_additional_configurations" {
