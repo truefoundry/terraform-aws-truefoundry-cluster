@@ -158,7 +158,7 @@ output "fargate_profiles" {
 
 output "eks_managed_node_groups" {
   description = "Map of attribute maps for all EKS managed node groups created"
-  value       = var.use_existing_cluster ? local.output_eks_managed_node_groups : module.aws-eks-kubernetes-cluster[0].eks_managed_node_groups
+  value       = var.use_existing_cluster ? null : tomap(module.aws-eks-kubernetes-cluster[0].eks_managed_node_groups)
 }
 
 ################################################################################

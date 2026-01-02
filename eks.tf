@@ -5,19 +5,19 @@
 module "aws-eks-kubernetes-cluster" {
   count                                 = var.use_existing_cluster ? 0 : 1
   source                                = "terraform-aws-modules/eks/aws"
-  version                               = "v20.33.1"
-  cluster_name                          = var.cluster_name
-  cluster_version                       = var.cluster_version
+  version                               = "v21.10.1"
+  name                                   = var.cluster_name
+  kubernetes_version                     = var.cluster_version
   create_iam_role                       = var.cluster_iam_role_enabled
   iam_role_arn                          = var.cluster_iam_role_arn
   iam_role_use_name_prefix              = var.cluster_iam_role_use_name_prefix
   iam_role_name                         = local.cluster_iam_role_name
-  cluster_enabled_log_types             = var.enable_cluster_log ? var.cluster_enabled_log_types : []
-  cluster_additional_security_group_ids = var.cluster_additional_security_group_ids
+  enabled_log_types                     = var.enable_cluster_log ? var.cluster_enabled_log_types : []
+  additional_security_group_ids         = var.cluster_additional_security_group_ids
   subnet_ids                            = var.subnet_ids
-  cluster_endpoint_private_access       = var.cluster_endpoint_private_access
-  cluster_endpoint_public_access        = var.cluster_endpoint_public_access
-  cluster_endpoint_public_access_cidrs  = var.cluster_endpoint_public_access_cidrs
+  endpoint_private_access                = var.cluster_endpoint_private_access
+  endpoint_public_access                 = var.cluster_endpoint_public_access
+  endpoint_public_access_cidrs          = var.cluster_endpoint_public_access_cidrs
 
   create_cloudwatch_log_group            = var.create_cloudwatch_log_group
   cloudwatch_log_group_retention_in_days = var.cloudwatch_log_group_retention_in_days
@@ -25,12 +25,10 @@ module "aws-eks-kubernetes-cluster" {
   enable_irsa                            = var.enable_irsa
   openid_connect_audiences               = var.openid_connect_audiences
   iam_role_additional_policies           = var.iam_role_additional_policies
-  self_managed_node_group_defaults       = var.self_managed_node_group_defaults
   self_managed_node_groups               = var.self_managed_node_groups
-  eks_managed_node_group_defaults        = var.eks_managed_node_group_defaults
   eks_managed_node_groups                = local.node_groups
 
-  cluster_security_group_additional_rules  = var.cluster_security_group_additional_rules
+  security_group_additional_rules         = var.cluster_security_group_additional_rules
   node_security_group_additional_rules     = merge(local.node_security_group_additional_rules, var.node_security_group_additional_rules)
   node_security_group_tags                 = var.node_security_group_tags
   enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
