@@ -66,6 +66,12 @@ variable "cluster_enabled_log_types" {
   default     = ["audit", "api", "authenticator"]
 }
 
+variable "cluster_encryption_config" {
+  description = "Configuration for encryption of the cluster. To disable this, set this to {}. For passing a custom key, set the value to { \"resources\": [ \"secrets\" ], \"provider_key_arn\": \"\" }"
+  type        = any
+  default     = { "resources" : ["secrets"] }
+}
+
 variable "enable_cluster_log" {
   description = "Enable cluster control plane logs"
   type        = bool
