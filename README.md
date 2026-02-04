@@ -71,6 +71,7 @@ Truefoundry EKS Module
 | <a name="input_eks_managed_node_group_defaults"></a> [eks\_managed\_node\_group\_defaults](#input\_eks\_managed\_node\_group\_defaults) | Managed node group defaults | `any` | `{}` | no |
 | <a name="input_enable_cluster_creator_admin_permissions"></a> [enable\_cluster\_creator\_admin\_permissions](#input\_enable\_cluster\_creator\_admin\_permissions) | Enable admin permission for the user who created the cluster | `bool` | `true` | no |
 | <a name="input_enable_cluster_log"></a> [enable\_cluster\_log](#input\_enable\_cluster\_log) | Enable cluster control plane logs | `bool` | `true` | no |
+| <a name="input_enable_create_kms_key"></a> [enable\_create\_kms\_key](#input\_enable\_create\_kms\_key) | Enable creation of a KMS key for the cluster | `bool` | `true` | no |
 | <a name="input_enable_irsa"></a> [enable\_irsa](#input\_enable\_irsa) | Determines whether to create an OpenID Connect Provider for EKS to enable IRSA | `bool` | `true` | no |
 | <a name="input_existing_cluster_node_role_arn"></a> [existing\_cluster\_node\_role\_arn](#input\_existing\_cluster\_node\_role\_arn) | IAM node role ARN for an existing cluster. This will only be used when use\_existing\_cluster is true | `string` | `""` | no |
 | <a name="input_existing_cluster_node_security_group_id"></a> [existing\_cluster\_node\_security\_group\_id](#input\_existing\_cluster\_node\_security\_group\_id) | Node security group for an existing cluster. This will only be used when use\_existing\_cluster is true. | `string` | `""` | no |
