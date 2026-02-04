@@ -35,6 +35,7 @@ module "aws-eks-kubernetes-cluster" {
   node_security_group_tags                 = var.node_security_group_tags
   enable_cluster_creator_admin_permissions = var.enable_cluster_creator_admin_permissions
   authentication_mode                      = var.cluster_authentication_mode
+  create_kms_key                           = var.enable_create_kms_key
   cluster_encryption_config                = var.cluster_encryption_config
   access_entries                           = var.cluster_access_entries
   fargate_profiles = var.karpenter_fargate_profile_enabled ? {

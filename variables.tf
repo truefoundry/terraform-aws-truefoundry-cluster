@@ -65,7 +65,11 @@ variable "cluster_enabled_log_types" {
   type        = list(string)
   default     = ["audit", "api", "authenticator"]
 }
-
+variable "enable_create_kms_key" {
+  description = "Enable creation of a KMS key for the cluster"
+  type        = bool
+  default     = true
+}
 variable "cluster_encryption_config" {
   description = "Configuration for encryption of the cluster. To disable this, set this to {}. For passing a custom key, set the value to { \"resources\": [ \"secrets\" ], \"provider_key_arn\": \"\" }"
   type        = any
