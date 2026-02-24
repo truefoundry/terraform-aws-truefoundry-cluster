@@ -589,7 +589,7 @@ variable "cluster_addons_kube_proxy_additional_configurations" {
 variable "cluster_addons_eks_pod_identity_agent_enable" {
   description = "Enable the EKS Pod Identity Agent addon"
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "cluster_addons_eks_pod_identity_agent_version" {
