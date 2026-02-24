@@ -7,20 +7,20 @@ Truefoundry EKS Module
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.4 |
-| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.27 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 6.33 |
 | <a name="requirement_helm"></a> [helm](#requirement\_helm) | ~> 2.9 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.27 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | ~> 6.33 |
 
 ## Modules
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v21.10.1 |
+| <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v21.15.1 |
 | <a name="module_eks_blueprints_addons"></a> [eks\_blueprints\_addons](#module\_eks\_blueprints\_addons) | aws-ia/eks-blueprints-addons/aws | 1.23.0 |
 
 ## Resources
@@ -46,7 +46,7 @@ Truefoundry EKS Module
 | <a name="input_cluster_addons_coredns_enable"></a> [cluster\_addons\_coredns\_enable](#input\_cluster\_addons\_coredns\_enable) | Enable the CoreDNS addon | `bool` | `true` | no |
 | <a name="input_cluster_addons_coredns_version"></a> [cluster\_addons\_coredns\_version](#input\_cluster\_addons\_coredns\_version) | Version of the CoreDNS addon. If not provided, the latest version will be used which is compatible with cluster\_version. | `string` | `""` | no |
 | <a name="input_cluster_addons_eks_pod_identity_agent_additional_configurations"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_additional\_configurations](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_additional\_configurations) | Additional configurations for the kube proxy addon | `any` | `{}` | no |
-| <a name="input_cluster_addons_eks_pod_identity_agent_enable"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_enable](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_enable) | Enable the EKS Pod Identity Agent addon | `bool` | `false` | no |
+| <a name="input_cluster_addons_eks_pod_identity_agent_enable"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_enable](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_enable) | Enable the EKS Pod Identity Agent addon | `bool` | `true` | no |
 | <a name="input_cluster_addons_eks_pod_identity_agent_version"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_version](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_version) | Version of the EKS Pod Identity Agent addon. If not provided, the latest version will be used which is compatible with cluster\_version. | `string` | `""` | no |
 | <a name="input_cluster_addons_kube_proxy_additional_configurations"></a> [cluster\_addons\_kube\_proxy\_additional\_configurations](#input\_cluster\_addons\_kube\_proxy\_additional\_configurations) | Additional configurations for the kube proxy addon | `any` | `{}` | no |
 | <a name="input_cluster_addons_kube_proxy_enable"></a> [cluster\_addons\_kube\_proxy\_enable](#input\_cluster\_addons\_kube\_proxy\_enable) | Enable the kube-proxy addon | `bool` | `true` | no |
