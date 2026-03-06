@@ -3,7 +3,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 5.57"
+      version = "~> 6.33"
     }
     # Added here because the upstream provider breaks
     # https://github.com/aws-ia/terraform-aws-eks-blueprints-addons/issues/452

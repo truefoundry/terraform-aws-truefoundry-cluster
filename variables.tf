@@ -9,12 +9,6 @@ variable "use_existing_cluster" {
   type        = bool
 }
 
-variable "existing_cluster_node_role_arn" {
-  description = "IAM node role ARN for an existing cluster. This will only be used when use_existing_cluster is true"
-  default     = ""
-  type        = string
-}
-
 variable "existing_cluster_node_security_group_id" {
   description = "Node security group for an existing cluster. This will only be used when use_existing_cluster is true."
   default     = ""
@@ -211,12 +205,6 @@ variable "iam_role_additional_policies" {
 ################################################################################
 # Self Managed Node Group
 ################################################################################
-
-variable "self_managed_node_group_defaults" {
-  description = "Self node group defaults"
-  type        = any
-  default     = {}
-}
 
 variable "self_managed_node_groups" {
   description = "Map of self-managed node group definitions to create"
