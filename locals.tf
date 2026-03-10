@@ -100,7 +100,6 @@ locals {
         launch_template_name            = "${var.cluster_name}-initial"
         launch_template_use_name_prefix = var.initial_node_pool_launch_template_use_name_prefix
         labels                          = var.initial_node_pool_labels
-        enable_monitoring               = true
         iam_role_additional_policies = merge(
           {
             karpenter = "arn:${data.aws_partition.current.partition}:iam::aws:policy/AmazonSSMManagedInstanceCore"
