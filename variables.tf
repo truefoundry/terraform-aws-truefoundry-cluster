@@ -76,6 +76,18 @@ variable "cluster_encryption_config" {
   default     = { "resources" : ["secrets"] }
 }
 
+variable "cluster_kms_key_source_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the cluster KMS key policy. Statements must have unique `sid`s"
+  type        = list(string)
+  default     = []
+}
+
+variable "cluster_kms_key_override_policy_documents" {
+  description = "List of IAM policy documents that are merged together into the cluster KMS key policy. In merging, statements with non-blank `sid`s will override statements with the same `sid`"
+  type        = list(string)
+  default     = []
+}
+
 variable "enable_cluster_log" {
   description = "Enable cluster control plane logs"
   type        = bool
