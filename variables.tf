@@ -121,7 +121,7 @@ variable "cluster_endpoint_public_access_cidrs" {
 variable "cluster_version" {
   description = "EKS cluster version"
   type        = string
-  default     = "1.34"
+  default     = "1.35"
 }
 
 variable "cluster_authentication_mode" {
