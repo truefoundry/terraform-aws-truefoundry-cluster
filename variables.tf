@@ -517,6 +517,12 @@ variable "tags" {
   default     = {}
 }
 
+variable "disable_default_tags" {
+  description = "Set to true to disable the default module tags (terraform, terraform-module, cluster-name). Only var.tags will be applied."
+  type        = bool
+  default     = false
+}
+
 ##################################################################################
 ## Karpenter Fargate profile
 ##################################################################################
