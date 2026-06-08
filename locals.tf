@@ -1,8 +1,8 @@
 locals {
   default_tags = {
-    "terraform"        = "true"
-    "terraform-module" = "cluster"
-    "cluster-name"     = var.cluster_name
+    "truefoundry-managed"          = "true"
+    "truefoundry-terraform-module" = "cluster"
+    "truefoundry-cluster-name"     = var.cluster_name
   }
 
   tags = merge(var.disable_default_tags ? {} : local.default_tags, var.tags)

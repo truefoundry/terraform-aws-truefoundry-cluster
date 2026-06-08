@@ -115,22 +115,22 @@ run "tags_applied" {
     error_message = "Expected cost-center tag to equal test-123, got: ${local.tags["cost-center"]}"
   }
 
-  # Default module tag is present
+  # truefoundry-terraform-module tag is present
   assert {
-    condition     = local.tags["terraform-module"] == "cluster"
-    error_message = "Expected terraform-module tag to equal cluster, got: ${local.tags["terraform-module"]}"
+    condition     = local.tags["truefoundry-terraform-module"] == "cluster"
+    error_message = "Expected truefoundry-terraform-module tag to equal cluster, got: ${local.tags["truefoundry-terraform-module"]}"
   }
 
-  # terraform tag is present
+  # truefoundry-managed tag is present
   assert {
-    condition     = local.tags["terraform"] == "true"
-    error_message = "Expected terraform tag to equal true, got: ${local.tags["terraform"]}"
+    condition     = local.tags["truefoundry-managed"] == "true"
+    error_message = "Expected truefoundry-managed tag to equal true, got: ${local.tags["truefoundry-managed"]}"
   }
 
-  # cluster-name tag is present
+  # truefoundry-cluster-name tag is present
   assert {
-    condition     = local.tags["cluster-name"] == "test-cluster"
-    error_message = "Expected cluster-name tag to equal test-cluster, got: ${local.tags["cluster-name"]}"
+    condition     = local.tags["truefoundry-cluster-name"] == "test-cluster"
+    error_message = "Expected truefoundry-cluster-name tag to equal test-cluster, got: ${local.tags["truefoundry-cluster-name"]}"
   }
 
   # karpenter_tags carries full standard tag set plus discovery tag
@@ -140,8 +140,8 @@ run "tags_applied" {
   }
 
   assert {
-    condition     = local.karpenter_tags["terraform-module"] == "cluster"
-    error_message = "Expected karpenter_tags terraform-module to equal cluster, got: ${local.karpenter_tags["terraform-module"]}"
+    condition     = local.karpenter_tags["truefoundry-terraform-module"] == "cluster"
+    error_message = "Expected karpenter_tags truefoundry-terraform-module to equal cluster, got: ${local.karpenter_tags["truefoundry-terraform-module"]}"
   }
 
   assert {
@@ -175,17 +175,17 @@ run "disable_default_tags" {
 
   # Default module tags should NOT be present
   assert {
-    condition     = !contains(keys(local.tags), "terraform-module")
-    error_message = "Expected terraform-module tag to be absent when disable_default_tags=true"
+    condition     = !contains(keys(local.tags), "truefoundry-terraform-module")
+    error_message = "Expected truefoundry-terraform-module tag to be absent when disable_default_tags=true"
   }
 
   assert {
-    condition     = !contains(keys(local.tags), "terraform")
-    error_message = "Expected terraform tag to be absent when disable_default_tags=true"
+    condition     = !contains(keys(local.tags), "truefoundry-managed")
+    error_message = "Expected truefoundry-managed tag to be absent when disable_default_tags=true"
   }
 
   assert {
-    condition     = !contains(keys(local.tags), "cluster-name")
-    error_message = "Expected cluster-name tag to be absent when disable_default_tags=true"
+    condition     = !contains(keys(local.tags), "truefoundry-cluster-name")
+    error_message = "Expected truefoundry-cluster-name tag to be absent when disable_default_tags=true"
   }
 }
