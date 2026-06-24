@@ -1,19 +1,14 @@
 locals {
-  tags = merge(
-    {
-      "terraform-module" = "eks"
-      "terraform"        = "true"
-      "cluster-name"     = var.cluster_name
-    },
-    var.tags
-  )
+  default_tags = {
+    "truefoundry-managed"          = "true"
+    "truefoundry-terraform-module" = "cluster"
+    "truefoundry-cluster-name"     = var.cluster_name
+    "cluster-name"                 = var.cluster_name
+  }
 
-  karpenter_tags = merge(
-    {
-      "karpenter.sh/discovery" = var.cluster_name
-    },
-    var.tags
-  )
+  tags = merge(var.disable_default_tags ? {} : local.default_tags, var.tags)
+
+  karpenter_tags = merge(local.tags, { "karpenter.sh/discovery" = var.cluster_name })
 
   cluster_iam_role_name = format("%s%s", substr(var.cluster_name, 0, 29), "-cluster")
 
