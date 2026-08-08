@@ -28,6 +28,7 @@ Truefoundry EKS Module
 | Name | Type |
 |------|------|
 | [aws_eks_addon_version.cluster_addons_coredns_version](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_addon_version) | data source |
+| [aws_eks_addon_version.cluster_addons_csi_snapshot_controller_version](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_addon_version) | data source |
 | [aws_eks_addon_version.cluster_addons_eks_pod_identity_agent_version](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_addon_version) | data source |
 | [aws_eks_addon_version.cluster_addons_kube_proxy_version](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_addon_version) | data source |
 | [aws_eks_addon_version.cluster_addons_vpc_cni_version](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/eks_addon_version) | data source |
@@ -45,6 +46,9 @@ Truefoundry EKS Module
 | <a name="input_cluster_addons_coredns_additional_configurations"></a> [cluster\_addons\_coredns\_additional\_configurations](#input\_cluster\_addons\_coredns\_additional\_configurations) | Additional configurations for the coredns addon | `any` | `{}` | no |
 | <a name="input_cluster_addons_coredns_enable"></a> [cluster\_addons\_coredns\_enable](#input\_cluster\_addons\_coredns\_enable) | Enable the CoreDNS addon | `bool` | `true` | no |
 | <a name="input_cluster_addons_coredns_version"></a> [cluster\_addons\_coredns\_version](#input\_cluster\_addons\_coredns\_version) | Version of the CoreDNS addon. If not provided, the latest version will be used which is compatible with cluster\_version. | `string` | `""` | no |
+| <a name="input_cluster_addons_csi_snapshot_controller_additional_configurations"></a> [cluster\_addons\_csi\_snapshot\_controller\_additional\_configurations](#input\_cluster\_addons\_csi\_snapshot\_controller\_additional\_configurations) | Additional configurations for the CSI Snapshot Controller addon | `any` | `{}` | no |
+| <a name="input_cluster_addons_csi_snapshot_controller_enable"></a> [cluster\_addons\_csi\_snapshot\_controller\_enable](#input\_cluster\_addons\_csi\_snapshot\_controller\_enable) | Enable the CSI Snapshot Controller addon | `bool` | `false` | no |
+| <a name="input_cluster_addons_csi_snapshot_controller_version"></a> [cluster\_addons\_csi\_snapshot\_controller\_version](#input\_cluster\_addons\_csi\_snapshot\_controller\_version) | Version of the CSI Snapshot Controller addon. If not provided, the latest version will be used which is compatible with cluster\_version. | `string` | `""` | no |
 | <a name="input_cluster_addons_eks_pod_identity_agent_additional_configurations"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_additional\_configurations](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_additional\_configurations) | Additional configurations for the kube proxy addon | `any` | `{}` | no |
 | <a name="input_cluster_addons_eks_pod_identity_agent_enable"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_enable](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_enable) | Enable the EKS Pod Identity Agent addon | `bool` | `true` | no |
 | <a name="input_cluster_addons_eks_pod_identity_agent_version"></a> [cluster\_addons\_eks\_pod\_identity\_agent\_version](#input\_cluster\_addons\_eks\_pod\_identity\_agent\_version) | Version of the EKS Pod Identity Agent addon. If not provided, the latest version will be used which is compatible with cluster\_version. | `string` | `""` | no |
