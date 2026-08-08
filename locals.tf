@@ -141,6 +141,13 @@ locals {
         addon_version        = var.cluster_addons_eks_pod_identity_agent_version != "" ? var.cluster_addons_eks_pod_identity_agent_version : data.aws_eks_addon_version.cluster_addons_eks_pod_identity_agent_version[0].version
         configuration_values = jsonencode(var.cluster_addons_eks_pod_identity_agent_additional_configurations)
       }
+    } : {},
+
+    var.cluster_addons_csi_snapshot_controller_enable ? {
+      snapshot-controller = {
+        addon_version        = var.cluster_addons_csi_snapshot_controller_version != "" ? var.cluster_addons_csi_snapshot_controller_version : data.aws_eks_addon_version.cluster_addons_csi_snapshot_controller_version[0].version
+        configuration_values = jsonencode(var.cluster_addons_csi_snapshot_controller_additional_configurations)
+      }
     } : {}
   )
 

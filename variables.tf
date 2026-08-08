@@ -625,6 +625,24 @@ variable "cluster_addons_eks_pod_identity_agent_additional_configurations" {
   default     = {}
 }
 
+variable "cluster_addons_csi_snapshot_controller_enable" {
+  description = "Enable the CSI Snapshot Controller addon"
+  type        = bool
+  default     = false
+}
+
+variable "cluster_addons_csi_snapshot_controller_version" {
+  description = "Version of the CSI Snapshot Controller addon. If not provided, the latest version will be used which is compatible with cluster_version."
+  type        = string
+  default     = ""
+}
+
+variable "cluster_addons_csi_snapshot_controller_additional_configurations" {
+  description = "Additional configurations for the CSI Snapshot Controller addon"
+  type        = any
+  default     = {}
+}
+
 variable "cluster_addons_observability_tag" {
   description = "Tag to identify EKS Blueprints usage within observability tools. Keep this value to null to disable telemetry"
   type        = string
