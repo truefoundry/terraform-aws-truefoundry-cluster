@@ -29,5 +29,11 @@ data "aws_eks_addon_version" "cluster_addons_eks_pod_identity_agent_version" {
   addon_name         = "eks-pod-identity-agent"
   kubernetes_version = var.cluster_version
 }
+
+data "aws_eks_addon_version" "cluster_addons_csi_snapshot_controller_version" {
+  count              = var.cluster_addons_csi_snapshot_controller_enable ? 1 : 0
+  addon_name         = "snapshot-controller"
+  kubernetes_version = var.cluster_version
+}
 # To do
 # apply data block for openid_connect_provider to fetch openid arn directly using eks cluster oidc[0].issuer[0].url
