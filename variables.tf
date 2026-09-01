@@ -261,6 +261,18 @@ variable "initial_node_pool_ami_type" {
   default     = "AL2023_x86_64_STANDARD"
 }
 
+variable "initial_node_pool_ami_release_version" {
+  description = "Exact AMI release version for the initial node pool (e.g. 1.34.10-20260827). Only applied when initial_node_pool_use_latest_ami_release_version is false; ignored while that is true (the default)."
+  type        = string
+  default     = ""
+}
+
+variable "initial_node_pool_use_latest_ami_release_version" {
+  description = "Whether the initial node pool tracks the latest EKS-optimized AMI for its ami_type. Default true keeps it on latest, which causes in-place release_version drift as new AMIs are published. Set false to stop the drift: freezes on the current AMI"
+  type        = bool
+  default     = true
+}
+
 variable "inital_node_pool_capacity_type" {
   description = "capacity type for the initial node pool"
   type        = string
