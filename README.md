@@ -21,7 +21,7 @@ Truefoundry EKS Module
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_aws-eks-kubernetes-cluster"></a> [aws-eks-kubernetes-cluster](#module\_aws-eks-kubernetes-cluster) | terraform-aws-modules/eks/aws | v21.29.0 |
-| <a name="module_eks_blueprints_addons"></a> [eks\_blueprints\_addons](#module\_eks\_blueprints\_addons) | aws-ia/eks-blueprints-addons/aws | 1.24.3 |
+| <a name="module_eks_blueprints_addons"></a> [eks\_blueprints\_addons](#module\_eks\_blueprints\_addons) | aws-ia/eks-blueprints-addons/aws | 1.23.0 |
 
 ## Resources
 
